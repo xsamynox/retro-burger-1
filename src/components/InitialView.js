@@ -1,9 +1,8 @@
 import React from 'react';
-import {
-  Link
-} from "react-router-dom";
+import { Link } from "react-router-dom";
 import logo from '../media/logo.png';
 import bell from '../media/bell-off.png'
+
 export class ContentHeader extends React.Component{
   render(){
     return(
@@ -15,13 +14,13 @@ export class ContentHeader extends React.Component{
           <img src={bell} className="bellOff" alt="bell" />
         </div>
       </header>
-    );  
+    );
   }
-} 
+}
 
 export class View extends React.Component {
   render() {
-    return ( 
+    return (
       <div>
         <ContentHeader />
         <div className="containerButtonsInitial">

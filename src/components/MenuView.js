@@ -17,22 +17,23 @@ export class Menu extends React.Component {
   }
   render() {
     let allFood;
+
     if (this.state.optionMenu === "lunch") {
-      allFood = <MenuAlmuerzo />
+      allFood = <MenuLunch />
     }
     else {
-      allFood = <MenuDesayuno />
+      allFood = <MenuBreakfast />
     }
     let classMenuLunch = this.state.optionMenu === "lunch" ? "buttonMenuOn" : "buttonMenuOff";
     let classMenuBreakfast = this.state.optionMenu === "breakfast" ? "buttonMenuOn" : "buttonMenuOff";
+      
     return (
       <div>
         <ContentHeader />
         <button className={classMenuLunch} onClick={this.handleClickLunch}>Almuerzo</button>
         <button className={classMenuBreakfast} onClick={this.handleClickBreakfast}>Desayuno</button>
         {allFood}
-      </div> 
-
+      </div>
     );
   }
 }
@@ -68,56 +69,40 @@ export class ChooseMenu extends React.Component {
     }
   }
 
-class MenuAlmuerzo extends React.Component {
-  render() {
-    return (
-      <div className="containerViewButtonsMenu">
-        <div className="containerButtonsMenu">
-         <ChooseMenu/>
-          <button className="buttonSidesMenu buttonMenu">{Almuerzo[2].nombre}<br />
-            {Almuerzo[2].precio}</button>
-          <button className="buttonSidesMenu buttonMenu">{Almuerzo[3].nombre}<br />
-            {Almuerzo[3].precio}</button>
-          <button className="buttonDrinkMenu buttonMenu">{Almuerzo[4].nombre}<br />
-            {Almuerzo[4].precio}</button>
-          <button className="buttonDrinkMenu buttonMenu">{Almuerzo[5].nombre}<br />
-            {Almuerzo[5].precio}</button>
-          <button className="buttonDrinkMenu buttonMenu">{Almuerzo[6].nombre}<br />
-            {Almuerzo[6].precio}</button>
-          <button className="buttonDrinkMenu buttonMenu">{Almuerzo[7].nombre}<br />
-            {Almuerzo[7].precio}</button>
-        </div>
-      </div>
-    );
-  }
+const BtnItems = (props) => {
+  console.log('props', props)
+  return <button>{props.item.nombre}<br />
+    {props.item.precio}</button>
 }
 
-class MenuDesayuno extends React.Component {
-  render() {
-    return (
-      <div className="containerViewButtonsMenu">
+const MenuLunch = () => {
+  const optionsMenu = () => Almuerzo.map((items) =>
+    <BtnItems key={items.nombre.toString()} className="buttonMenu" item={items} />
+  );
+  return (
+    <div className="containerViewButtonsMenu">
         <div className="containerButtonsMenu">
-          <button className="buttonMainMenu buttonMenu">{Desayuno[0].nombre}<br />
-            {Desayuno[0].precio}</button>
-          <button className="buttonMainMenu buttonMenu">{Desayuno[1].nombre}<br />
-            {Desayuno[1].precio}</button>
-          <button className="buttonDrinkMenu buttonMenu">{Desayuno[2].nombre}<br />
-            {Desayuno[2].precio}</button>
-          <button className="buttonDrinkMenu buttonMenu">{Desayuno[3].nombre}<br />
-            {Desayuno[3].precio}</button>
-          <button className="buttonDrinkMenu buttonMenu">{Desayuno[4].nombre}<br />
-            {Desayuno[4].precio}</button>
-          <button className="buttonDrinkMenu buttonMenu">{Desayuno[5].nombre}<br />
-            {Desayuno[5].precio}</button>
-          <button className="buttonDrinkMenu buttonMenu">{Desayuno[6].nombre}<br />
-            {Desayuno[6].precio}</button>
-          <button className="buttonDrinkMenu buttonMenu">{Desayuno[7].nombre}<br />
-            {Desayuno[7].precio}</button>
-        </div>
-      </div>
-    );
-  }
+      <ChooseMenu/>
+    {optionsMenu()}
+    </div>
+ </div>
+  );
+
 }
+
+const MenuBreakfast = () => {
+  const optionsMenu = () => Desayuno.map((items) =>
+    <BtnItems key={items.nombre.toString()} className="buttonMenu"> item={items} />
+  );
+  return (
+    <div className="containerViewButtonsMenu">
+        <div className="containerButtonsMenu">
+      {optionsMenu()}
+    </div>
+</div>
+  );
+}
+
 
 class SubMenu extends React.Component {
   render() {
@@ -141,3 +126,4 @@ class SubMenu extends React.Component {
     );
   }
 } 
+

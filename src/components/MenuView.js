@@ -2,13 +2,40 @@ import React from 'react';
 import { ContentHeader } from './InitialView';
 import { Almuerzo, Desayuno, proteina, agregado } from '../data/menu.json';
 
-export class Menu extends React.Component {
+
+export class ContentMenuOrderDetail extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleIndexButtonClicked = this.handleIndexButtonClicked.bind(this);
+    this.state = { indexButtonClicked: undefined }
+  }
+  handleIndexButtonClicked(indexButtonClicked) {
+    this.setState({ indexButtonClicked: indexButtonClicked })
+  }
+  render() {
+    return (
+      <div>
+        <Menu indexButtonClicked={this.state.indexButtonClicked} onHandleIndexButtonClicked={this.handleIndexButtonClicked} />
+        <OrderDetail indexButtonClicked={this.state.indexButtonClicked} />
+      </div>
+    );
+  }
+}
+
+class OrderDetail extends React.Component {
+  render() {
+    return (
+      <div>{this.props.indexButtonClicked}</div>
+    );
+  }
+}
+
+class Menu extends React.Component {
   constructor(props) {
     super(props);
     this.handleClickLunch = this.handleClickLunch.bind(this);
     this.handleClickBreakfast = this.handleClickBreakfast.bind(this);
-    this.handleClickIngredients = this.handleClickIngredients.bind(this)
-    this.state = { optionMenu: "lunch", optionIngredients: false }
+    this.state = { optionMenu: "lunch" }
   }
   handleClickLunch() {
     this.setState({ optionMenu: "lunch" })
@@ -16,17 +43,14 @@ export class Menu extends React.Component {
   handleClickBreakfast() {
     this.setState({ optionMenu: "breakfast" })
   }
-  handleClickIngredients(optionIngredients){
-    this.setState({optionIngredients: optionIngredients})
-  }
-  
+
   render() {
-      
-    let allFood = this.state.optionMenu === "lunch"? <MenuLunch optionIngredients={this.state.optionIngredients} onhandleClickIngredients={this.handleClickIngredients}/> : <MenuBreakfast />;
+    let allFood = this.state.optionMenu === "lunch" ? <MenuLunch indexButtonClicked={this.props.indexButtonClicked} onHandleIndexButtonClicked={this.props.onHandleIndexButtonClicked} /> : <MenuBreakfast />;
     // para tener distintos colores en pestaña menu y almuerzo 
     let classMenuLunch = this.state.optionMenu === "lunch" ? "buttonMenuOn" : "buttonMenuOff";
     let classMenuBreakfast = this.state.optionMenu === "breakfast" ? "buttonMenuOn" : "buttonMenuOff";
-      
+    console.log()
+
     return (
       <div>
         <ContentHeader />
@@ -37,96 +61,48 @@ export class Menu extends React.Component {
     );
   }
 }
-// export class ShowSubMenu extends React.Component {
-//     constructor(props){
-//       super(props);
-//       this.handleClickIngredients=this.handleClickIngredients.bind(this);
-//       this.state={optionIngredients: false};
-//     }
-//     handleClickIngredients(){
-//       this.setState({optionIngredients: true})
-//     }
-//     render() {
-//       let allIngredients = this.state.optionIngredients? <SubMenu />: "";
-//       return (
-//        <div>
-//           <button onClick={this.handleClickIngredients} className="buttonMainMenu buttonMenu">
-//             {Almuerzo[0].nombre}<br/>
-//             {Almuerzo[0].precio}</button>
-//           <button onClick={this.handleClickIngredients} className="buttonMainMenu buttonMenu">
-//             {Almuerzo[1].nombre}<br/>
-//             {Almuerzo[1].precio}</button>
-//             {allIngredients}
-//         </div> 
-//       );
-//     }
-//   }
 
-// const BtnItems = (props) => {
-//   console.log('props', props)
-//   return <button className="buttonMenu" >{props.item.nombre}<br />
-//     {props.item.precio}</button>
-// }
-
-// const MenuLunch = () => {
-//   const optionsMenu = () => Almuerzo.map((items) =>
-//     <BtnItems key={items.nombre.toString()} item={items} />
-//   );
-//   return (
-//     <div className="containerViewButtonsMenu">
-//         <div className="containerButtonsMenu">
-//       <ChooseMenu/>
-//     {optionsMenu()}
-//     </div>
-//  </div>
-//   );
-// }
-
-// const MenuBreakfast = () => {
-//   const optionsMenu = () => Desayuno.map((items) =>
-//     <BtnItems key={items.nombre.toString()} item={items} />
-//   );
-//   return (
-//     <div className="containerViewButtonsMenu">
-//         <div className="containerButtonsMenu">
-//       {optionsMenu()}
-//     </div>
-// </div>
-//   );
-// }
 
 class MenuLunch extends React.Component {
-  listenButtons = (e) =>{
-    console.log(e.target.value) 
+  constructor(props) {
+    super(props);
+    this.state = { activeButton: undefined };
+  }
+  // listenButtons = (e) =>{
+  //   console.log(e.target.value) 
+  // }
+  showIngredientsWithClick(index) {
+    this.setState({ activeButton: index })
+  }
+  catchIndexButtonClicked(index) {
+    this.props.onHandleIndexButtonClicked(index)
   }
 
-  ShowIngredientesWithClick(e){
-    this.props.onhandleClickIngredients(false);  
-    allIngredients = this.props.optionIngredients ? <SubMenu /> : "";
-  }
+
+
   render() {
-    let allIngredients;
     return (
       <div className="containerViewButtonsMenu">
         <div className="containerButtonsMenu">
-          <button onClick={this.ShowIngredientesWithClick} className="buttonMainMenu buttonMenu">
-            {Almuerzo[0].nombre}<br/>
+          <button onClick={() => this.showIngredientsWithClick(0)} className="buttonMainMenu buttonMenu" >
+            {Almuerzo[0].nombre}<br />
             {Almuerzo[0].precio}</button>
-          <button onClick={this.props.ShowIngredientesWithClick} className="buttonMainMenu buttonMenu">
-            {Almuerzo[1].nombre}<br/>
+          <button onClick={() => this.showIngredientsWithClick(1)} className="buttonMainMenu buttonMenu">
+            {Almuerzo[1].nombre}<br />
             {Almuerzo[1].precio}</button>
-            {allIngredients}
-          <button className="buttonSidesMenu buttonMenu" value={Almuerzo[2].nombre} onClick={(e) => this.listenButtons(e)}>{Almuerzo[2].nombre}<br />
+          {this.state.activeButton === 0 && <SubMenu />}
+          {this.state.activeButton === 1 && <SubMenu />}
+          <button className="buttonSidesMenu buttonMenu" onClick={() => this.catchIndexButtonClicked(2)}>{Almuerzo[2].nombre}<br />
             {Almuerzo[2].precio}</button>
-          <button className="buttonSidesMenu buttonMenu" value={Almuerzo[3].nombre} onClick={(e) => this.listenButtons(e)}>{Almuerzo[3].nombre}<br />
+          <button className="buttonSidesMenu buttonMenu" onClick={() => this.catchIndexButtonClicked(3)}>{Almuerzo[3].nombre}<br />
             {Almuerzo[3].precio}</button>
-          <button className="buttonDrinkMenu buttonMenu" value={Almuerzo[4].nombre} onClick={(e) => this.listenButtons(e)}>{Almuerzo[4].nombre}<br />
+          <button className="buttonDrinkMenu buttonMenu" onClick={() => this.catchIndexButtonClicked(4)}>{Almuerzo[4].nombre}<br />
             {Almuerzo[4].precio}</button>
-          <button className="buttonDrinkMenu buttonMenu" value={Almuerzo[5].nombre} onClick={(e) => this.listenButtons(e)}>{Almuerzo[5].nombre}<br />
+          <button className="buttonDrinkMenu buttonMenu" onClick={() => this.catchIndexButtonClicked(5)}>{Almuerzo[5].nombre}<br />
             {Almuerzo[5].precio}</button>
-          <button className="buttonDrinkMenu buttonMenu" value={Almuerzo[6].nombre} onClick={(e) => this.listenButtons(e)}>{Almuerzo[6].nombre}<br />
+          <button className="buttonDrinkMenu buttonMenu" onClick={() => this.catchIndexButtonClicked(6)}>{Almuerzo[6].nombre}<br />
             {Almuerzo[6].precio}</button>
-          <button className="buttonDrinkMenu buttonMenu" value={Almuerzo[7].nombre} onClick={(e) => this.listenButtons(e)}>{Almuerzo[7].nombre}<br />
+          <button className="buttonDrinkMenu buttonMenu" onClick={() => this.catchIndexButtonClicked(7)}>{Almuerzo[7].nombre}<br />
             {Almuerzo[7].precio}</button>
         </div>
       </div>
@@ -182,14 +158,4 @@ class SubMenu extends React.Component {
       </div>
     );
   }
-} 
-
-// class OrderDetails extends React.Component {
-//   render() {
-//     return(
-//       <div>
-//         {this.props}
-//       </div>
-//     );
-//   }
-// }
+}

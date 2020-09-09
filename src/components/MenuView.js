@@ -71,6 +71,15 @@ export class ContentMenuOrderDetail extends React.Component {
     }
   }
 
+  // Modificando el estado que se ejecutara en SendOrder
+  handleResetOrder = () => {
+    this.setState({ orderTable: [] })
+  }
+
+  handleResetPrice = () => {
+    this.setState({ totalPrice: 0 })
+  }
+
   render() {
     let classMenuLunch =
       this.state.optionMenu === "lunch" ? "buttonMenuOn" : "buttonMenuOff";
@@ -81,13 +90,13 @@ export class ContentMenuOrderDetail extends React.Component {
         <ContentHeader />
         <button
           className={classMenuLunch}
-          onClick={() => this.setState({ optionMenu: "lunch" })}
+          onClick={() => this.setState({ optionMenu: "lunch", orderTable: [] })}
         >
           Almuerzo
         </button>
         <button
           className={classMenuBreakfast}
-          onClick={() => this.setState({ optionMenu: "breakfast" })}
+          onClick={() => this.setState({ optionMenu: "breakfast", orderTable: [] })}
         >
           Desayuno
         </button>
@@ -103,6 +112,8 @@ export class ContentMenuOrderDetail extends React.Component {
           menuClicked={this.state.menuClicked}
           orderTable={this.state.orderTable}
           totalPrice={this.state.totalPrice}
+          handleResetOrder={this.handleResetOrder}
+          handleResetPrice={this.handleResetPrice}
         />
       </div>
     );
@@ -133,6 +144,8 @@ const OrderDetail = (props) => {
           <SendOrder
             orderToSend={props.orderTable}
             priceToSend={props.totalPrice}
+     handleResetOrder={props.handleResetOrder}
+          handleResetPrice={props.handleResetPrice}
           />
         </div>
       </div>
@@ -141,20 +154,23 @@ const OrderDetail = (props) => {
 };
 
 class SendOrder extends React.Component {
+
   handleClickSendOrder(orderTable, totalPrice) {
+    this.props.handleResetOrder();
+    this.props.handleResetPrice();
     saveOrder(orderTable, totalPrice);
   }
+
   render() {
     return (
+
       <button className="btnSendOrder"
         onClick={() => { this.handleClickSendOrder(this.props.orderToSend, this.props.priceToSend) }}>
         ENVIAR PEDIDO
       </button>
-
     );
   }
 }
-
 class Menu extends React.Component {
   render() {
     let allFood =

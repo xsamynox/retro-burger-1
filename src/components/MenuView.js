@@ -2,6 +2,7 @@ import React from "react";
 import { ContentHeader } from "./InitialView";
 import { saveOrder } from "../services/MeseroService";
 import { Almuerzo, Desayuno } from "../data/menu.json";
+import { Link } from "react-router-dom";
 
 export class ContentMenuOrderDetail extends React.Component {
   constructor(props) {
@@ -144,33 +145,38 @@ const OrderDetail = (props) => {
           <SendOrder
             orderToSend={props.orderTable}
             priceToSend={props.totalPrice}
-     handleResetOrder={props.handleResetOrder}
-          handleResetPrice={props.handleResetPrice}
+            handleResetOrder={props.handleResetOrder}
+            handleResetPrice={props.handleResetPrice}
           />
         </div>
       </div>
     </div>
   );
 };
-
 class SendOrder extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { estadoPedido: "En Proceso" };
+  }
 
   handleClickSendOrder(orderTable, totalPrice) {
+    const stateOrder = this.state.estadoPedido;
     this.props.handleResetOrder();
     this.props.handleResetPrice();
-    saveOrder(orderTable, totalPrice);
+    saveOrder(orderTable, totalPrice, stateOrder);
   }
 
   render() {
     return (
 
-      <button className="btnSendOrder"
+      <Link to="/mesero"><button className="btnSendOrder"
         onClick={() => { this.handleClickSendOrder(this.props.orderToSend, this.props.priceToSend) }}>
         ENVIAR PEDIDO
-      </button>
+      </button></Link>
     );
   }
 }
+
 class Menu extends React.Component {
   render() {
     let allFood =
@@ -278,7 +284,6 @@ class MenuLunch extends React.Component {
     );
   }
 }
-
 class MenuBreakfast extends React.Component {
   catchIndexButtonClicked(index) {
     this.props.onHandleIndexButtonClickedChildren(index, "desayuno");
@@ -354,3 +359,29 @@ class MenuBreakfast extends React.Component {
     );
   }
 }
+
+// class Modal extends React.Component {
+//   render() {
+//     return (
+//       <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+//         <div className="modal-dialog">
+//           <div className="modal-content">
+//             <div className="modal-header">
+//               <h5 className="modal-title" id="exampleModalLabel">Modal title</h5>
+//               <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+//                 <span aria-hidden="true">&times;</span>
+//               </button>
+//             </div>
+//             <div className="modal-body">
+//               ...
+//             </div>
+//             <div className="modal-footer">
+//               <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+//               <button type="button" className="btn btn-primary">Save changes</button>
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//     )
+//   }
+// }

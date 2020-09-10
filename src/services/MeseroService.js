@@ -13,7 +13,7 @@ const idCurrenTime = () => {
 
 idCurrenTime();
 
-const currentDate= () => {
+const currentDate = () => {
   let date = new Date();
 
   const day = date.getDate();
@@ -25,11 +25,11 @@ const currentDate= () => {
 };
 
 
-export const saveOrder = (order, price, estado) => {
+export const saveOrder = (order, price) => {
   return db.collection("pedidos").doc(JSON.parse(sessionStorage.table).table + " " + idCurrenTime()).set({
     productos: order,
     totalPrice: price,
-    estadoPedido: estado,
+    estadoPedido: "En proceso",
     mesa: JSON.parse(sessionStorage.table).table,
     date: currentDate(),
     hora: idCurrenTime(),

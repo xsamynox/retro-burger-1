@@ -36,7 +36,7 @@ export class ContentMenuOrderDetail extends React.Component {
           Almuerzo[indexButtonClicked].precio;
         this.setState((state) => {
           const total = state.orderTable.reduce(
-            (totalsum, oli) => totalsum + oli.preciototal,
+            (totalsum, array) => totalsum + array.preciototal,
             0
           );
           return { totalPrice: total };
@@ -63,15 +63,15 @@ export class ContentMenuOrderDetail extends React.Component {
           return { orderTable: actualOrder };
         });
         Desayuno[indexButtonClicked].cantidad = 1;
-        Desayuno[indexButtonClicked].preciototal =Desayuno[indexButtonClicked].precio;
+        Desayuno[indexButtonClicked].preciototal = Desayuno[indexButtonClicked].precio;
         this.setState((state) => {
           const total = state.orderTable.reduce(
-            (totalsum, array) => totalsum + array.preciototal,0);
+            (totalsum, array) => totalsum + array.preciototal, 0);
           return { totalPrice: total };
         });
       } else {
         Desayuno[indexButtonClicked].cantidad += 1;
-        Desayuno[indexButtonClicked].preciototal +=Desayuno[indexButtonClicked].precio;
+        Desayuno[indexButtonClicked].preciototal += Desayuno[indexButtonClicked].precio;
         this.setState((state) => {
           const total = state.orderTable.reduce(
             (totalsum, array) => totalsum + array.preciototal,
@@ -88,7 +88,7 @@ export class ContentMenuOrderDetail extends React.Component {
   handleReset = () => {
     this.setState({ orderTable: [], totalPrice: 0 })
   }
-  
+
   deleteItems = (index) => {
     console.log(index)
     this.setState({
@@ -147,7 +147,7 @@ export class ContentMenuOrderDetail extends React.Component {
           menuClicked={this.state.menuClicked}
           orderTable={this.state.orderTable}
           totalPrice={this.state.totalPrice}
-          handleResetOrder={this.handleReset}
+          handleResetW={this.handleReset}
           deleteItems={this.deleteItems}
 
         />
@@ -267,14 +267,14 @@ class Menu extends React.Component {
           }
         />
       ) : (
-        <MenuBreakfast
-          indexButtonClicked={this.props.indexButtonClicked}
-          menuClicked={this.props.menuClicked}
-          onHandleIndexButtonClickedChildren={
-            this.props.onHandleIndexButtonClicked
-          }
-        />
-      );
+          <MenuBreakfast
+            indexButtonClicked={this.props.indexButtonClicked}
+            menuClicked={this.props.menuClicked}
+            onHandleIndexButtonClickedChildren={
+              this.props.onHandleIndexButtonClicked
+            }
+          />
+        );
     return <div className="containerViewButtonsMenu">{allFood}</div>;
   }
 }

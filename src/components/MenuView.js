@@ -14,102 +14,71 @@ export class ContentMenuOrderDetail extends React.Component {
       orderTable: [],
       optionMenu: "lunch",
       totalPrice: 0,
+      cantidad: 0,
     };
   }
 
-  handleIndexButtonClicked(indexButtonClicked, menuClicked, totalPrice) {
-    this.setState({
-      indexButtonClicked: indexButtonClicked,
-      menuClicked: menuClicked,
-      totalPrice: totalPrice,
-    });
-    if (menuClicked === "almuerzo") {
-      if (Almuerzo[indexButtonClicked].cantidad === 0) {
-        this.setState((state) => {
-          const actualOrder = state.orderTable.concat(
-            Almuerzo[indexButtonClicked]
-          );
-          return { orderTable: actualOrder };
-        });
-        Almuerzo[indexButtonClicked].cantidad = 1;
-        Almuerzo[indexButtonClicked].preciototal =
-          Almuerzo[indexButtonClicked].precio;
-        this.setState((state) => {
-          const total = state.orderTable.reduce(
-            (totalsum, array) => totalsum + array.preciototal,
-            0
-          );
-          return { totalPrice: total };
-        });
-      } else {
-        Almuerzo[indexButtonClicked].cantidad += 1;
-        Almuerzo[indexButtonClicked].preciototal +=
-          Almuerzo[indexButtonClicked].precio;
-        this.setState((state) => {
-          const total = state.orderTable.reduce(
-            (totalsum, array) => totalsum + array.preciototal,
-            0
-          );
-          return { totalPrice: total };
-        });
-      }
+  handleIndexButtonClicked(indexButtonClicked, menuClicked) {
+    // Se guardan los menus en un solo objecto para facilitar la accesibilidad
+    const menus = {
+      desayuno: Desayuno,
+      almuerzo: Almuerzo
     }
-    if (menuClicked === "desayuno") {
-      if (Desayuno[indexButtonClicked].cantidad === 0) {
-        this.setState((state) => {
-          const actualOrder = state.orderTable.concat(
-            Desayuno[indexButtonClicked]
-          );
-          return { orderTable: actualOrder };
-        });
-        Desayuno[indexButtonClicked].cantidad = 1;
-        Desayuno[indexButtonClicked].preciototal = Desayuno[indexButtonClicked].precio;
-        this.setState((state) => {
-          const total = state.orderTable.reduce(
-            (totalsum, array) => totalsum + array.preciototal, 0);
-          return { totalPrice: total };
-        });
-      } else {
-        Desayuno[indexButtonClicked].cantidad += 1;
-        Desayuno[indexButtonClicked].preciototal += Desayuno[indexButtonClicked].precio;
-        this.setState((state) => {
-          const total = state.orderTable.reduce(
-            (totalsum, array) => totalsum + array.preciototal,
-            0
-          );
-          return { totalPrice: total };
-        });
+    //Comida seleccionada
+    const mealSelected = menus[menuClicked][indexButtonClicked];
+    // Pregunto si existe una comida con el mismo nombre ya en el arreglo de ordenes
+    const existOtherMeal = this.state.orderTable.length && this.state.orderTable.filter(data => data.nombre === mealSelected.nombre).length
+    // Guardo el largo de las ordernes para no reescribir lo mismo a cada rato
+    const lengthOrderTable = this.state.orderTable.length;
+
+    // Si es el primero lo agrego o si no esta uno del mismo tipo de comida
+    if (!lengthOrderTable || !existOtherMeal) {
+      const tempOrderTable = [...this.state.orderTable, { ...mealSelected, cantidad: 1, preciototal: mealSelected.precio }];
+      let total;
+      // Si existe una orden ya en el carro calcular el total de todos
+      if (lengthOrderTable) {
+        total = tempOrderTable.reduce((total, data) => {
+          return total + data.preciototal
+        }, 0)
       }
+      this.setState({ orderTable: [...tempOrderTable], totalPrice: total || mealSelected.precio })
+    }
+
+    // Si existe ya una comida con el mismo nombre en el arreglo entonces aumento cantidad y precio
+    if (existOtherMeal) {
+      // Creo un arreglo temporar para poder modificar los items del estado
+      const tempOrderTable = this.state.orderTable.map((elem) => {
+        // Busco el item con el map y si lo encuentro aumento cantidad y precio
+        if (elem && elem.nombre === mealSelected.nombre) {
+          const newQuantity = ++elem.cantidad; // La cantidad nueva del mismo pedido
+          return elem = { ...elem, cantidad: newQuantity, preciototal: elem.precio * newQuantity };
+        }
+        // Sino es el elemento igual lo retorno para no perderlo de la lista
+        return elem
+      })
+      // Calculo el total de los items
+      const total = tempOrderTable.reduce((total, elem) => {
+        return total + elem.preciototal
+      }, 0)
+      // Reemplazo orderTable por el nuevo editado
+      this.setState({ orderTable: [...tempOrderTable], totalPrice: total })
     }
   }
 
   // Modificando el estado que se ejecutara en SendOrder
-
   handleReset = () => {
-    this.setState({ orderTable: [], totalPrice: 0 })
+    this.setState({ orderTable: [], totalPrice: 0, cantidad: 0 })
   }
 
   deleteItems = (index) => {
-    console.log(index)
     this.setState({
+      cantidad: 0,
+      totalPrice: 0,
       orderTable: this.state.orderTable.filter((item, idIndex) => {
-        console.log(idIndex)
         return idIndex !== index
       })
     });
-
   }
-
-  // handleSubtract = (index) => {
-  //   this.setState({
-  //     orderTable: this.state.orderTable.filter(function (item, id) {
-  //       if (item.cantidad += 1) {
-  //         return id !== index
-  //       }
-  //       return id !== index
-  //     })
-  //   });
-  // }
 
   render() {
     let classMenuLunch =
@@ -147,7 +116,8 @@ export class ContentMenuOrderDetail extends React.Component {
           menuClicked={this.state.menuClicked}
           orderTable={this.state.orderTable}
           totalPrice={this.state.totalPrice}
-          handleResetW={this.handleReset}
+          cantidad={this.state.cantidad}
+          handleReset={this.handleReset}
           deleteItems={this.deleteItems}
 
         />
@@ -421,29 +391,3 @@ class MenuBreakfast extends React.Component {
     );
   }
 }
-
-// class Modal extends React.Component {
-//   render() {
-//     return (
-//       <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-//         <div className="modal-dialog">
-//           <div className="modal-content">
-//             <div className="modal-header">
-//               <h5 className="modal-title" id="exampleModalLabel">Modal title</h5>
-//               <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-//                 <span aria-hidden="true">&times;</span>
-//               </button>
-//             </div>
-//             <div className="modal-body">
-//               ...
-//             </div>
-//             <div className="modal-footer">
-//               <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-//               <button type="button" className="btn btn-primary">Save changes</button>
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-//     )
-//   }
-// }

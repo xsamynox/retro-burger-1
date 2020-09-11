@@ -31,7 +31,7 @@ export class Kitchen extends React.Component {
   render() {
     const { kitchenOrders } = this.state;
     const kitchentList = kitchenOrders.map((order) => {
-      if (order.estadoPedido === "En Proceso") {
+      if (order.estadoPedido.toLowerCase() === "En proceso".toLowerCase()) {
         return (
           <OrderTable key={order.mesa + "-" + order.hora} valueButton={order.mesa + " " + order.hora} table={order.mesa}>
             {order.productos.map((product) => (
@@ -78,7 +78,7 @@ const OrderTable = ({ children, table, valueButton }) => {
         </div>
       </div>
       <div className="containerBtnReadyKitchen">
-        <button className="btnReadyKitchen" value={valueButton} onClick={(e)=>finishOrder(e)}>Listo</button>
+        <button className="btnReadyKitchen" value={valueButton} onClick={(e) => finishOrder(e)}>Listo</button>
       </div>
     </div>
   );
@@ -131,17 +131,17 @@ const OrderProducts = ({ product }) => {
 //   );
 // }
 
-const finishOrder =(e)=>{
-  const valueButton= e.target.value;
+const finishOrder = (e) => {
+  const valueButton = e.target.value;
   db.collection('pedidos').get().then((querySnapshot) => {
     querySnapshot.forEach((doc) => {
-      if (valueButton === (doc.data().mesa+" "+doc.data().hora)) {
-      
-        firebase.firestore().collection('pedidos').doc(doc.data().mesa+" "+doc.data().hora).update({
+      if (valueButton === (doc.data().mesa + " " + doc.data().hora)) {
+
+        firebase.firestore().collection('pedidos').doc(doc.data().mesa + " " + doc.data().hora).update({
           estadoPedido: "Terminado"
         })
       }
-      else{
+      else {
         console.log("no eran iguales")
       }
     })
@@ -150,4 +150,3 @@ const finishOrder =(e)=>{
 
 
 
-  

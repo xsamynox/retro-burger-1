@@ -58,25 +58,28 @@ export class ContentMenuOrderDetail extends React.Component {
   };
 
   deleteItems = (index) => {
-    console.log(index);
-    this.setState({
-      orderTable: this.state.orderTable.filter((item, idIndex) => {
-        console.log(idIndex);
-        return idIndex !== index;
-      }),
+    const filterOrderTable = this.state.orderTable.filter((item, idIndex) => {
+      item.cantidad = 0;
+      return idIndex !== index;
     });
+    this.setState({
+      orderTable: filterOrderTable,
+    })
   };
 
-  // handleSubtract = (index) => {
-  //   this.setState({
-  //     orderTable: this.state.orderTable.filter(function (item, id) {
-  //       if (item.cantidad += 1) {
-  //         return id !== index
-  //       }
-  //       return id !== index
-  //     })
-  //   });
-  // }
+  handleSubtract = (indexSelectec) => {
+    const tempArray = this.state.orderTable.map((item, indexMap) => {
+      if (indexMap === indexSelectec && item.cantidad > 1) {
+        const newQuantity = --item.cantidad;
+        item.cantidad = newQuantity
+        item.preciototal = item.precio * newQuantity
+        return item;
+      }
+      return item;
+    })
+
+    this.setState({ orderTable: tempArray })
+  }
 
   render() {
     let classMenuLunch =
@@ -115,6 +118,7 @@ export class ContentMenuOrderDetail extends React.Component {
           totalPrice={this.state.totalPrice}
           handleReset={this.handleReset}
           deleteItems={this.deleteItems}
+          handleSubtract={this.handleSubtract}
         />
       </div>
     );
@@ -337,3 +341,4 @@ const Modal = ({ modalVisibility }) => {
     </div>
   );
 };
+

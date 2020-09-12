@@ -24,8 +24,8 @@ button{
   width: 100%;
   background: #5e5e5e;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
 }
 
 .App {
@@ -47,6 +47,8 @@ button{
 
 .containerLogo {
   width: 320px;
+  display: flex;
+  align-items: center;
 }
 
 .containerBellOf {
@@ -342,16 +344,22 @@ textarea {
 
 .btn-line {
   font-size: 1.5em;
+  font-weight: bold;
 }
 
 .fa-trash-alt {
   font-size: 2.2em;
   color: #5e5e5e;
 }
-
 .trashOrder {
   display: flex;
   justify-content: space-between;
+}
+/* Button volver */
+.fa-chevron-left{
+  font-size: 4em;
+  color: #81c9a4;
+  margin-left: 20%;
 }
 
 /* VIEW KITCHEN  */

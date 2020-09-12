@@ -7,7 +7,8 @@
     - [2. Planteamiento del Problema](#2-planteamiento-del-problema)
         - [2.1 Investigación](#31-Investigación)
         - [2.2 Creación de Prototipo de baja fidelidad](#32-creación-de-prototipo-de-baja-fidelidad)
-        - [2.3 Creación de Prototipo de alta fidelidad](#32-creación-de-prototipo-de-alta-fidelidad)
+        - [2.3 Diagrama de flujo](#23-diagrama-de-flujo)
+        - [2.4 Creación de Prototipo de alta fidelidad](#24-creación-de-prototipo-de-alta-fidelidad)
     - [3. Resolución del problema](#3-resolución-del-problema)
         - [3.1 Aportes](#32-aportes)
 - [4. Desiciones de diseño](#4-desiciones-de-diseño)
@@ -15,8 +16,9 @@
         - [4.2 Colores](#42-colores)
         - [4.3 Tipografía](#42-tipografía)
         - [4.4 Aspecto visual](#43-aspecto-visual)
-- [5. Criterios de aceptación mínimos del proyecto](#5-criterios-de-aceptación-mínimos-del-proyecto)
-- [6. Pistas, tips y lecturas complementarias](#6-pistas-tips-y-lecturas-complementarias)
+
+- [5. Acerca de la aplicación](#5-acerca-de-la-aplicación)
+- [6. Autores](#6-autores)
 
 ***
 
@@ -85,7 +87,11 @@ Puedes ver aqui nuestro Prototipo de baja fidelidad:
 
 Con este prototipo de baja quisimos plasmar la idea principal, de una interfaz limpia, simple y bastante amigable en usabilidad, destacando el hecho de que todo se encuentra al alcance de un click.
 
-### 2.3 Creación de Prototipo de alta fidelidad
+### 2.3 Diagrama de flujo
+
+[Creately](https://app.creately.com/diagram/qbTlWwO5YLO/edit)
+
+### 2.4 Creación de Prototipo de alta fidelidad
 
 Siguiendo la misma línea del prototipo de baja, y ya teniendo más claros los objetivos del proyecto, diseñamos el prototipo de baja, implementando colores y otros detalles que nos serian de gran utilidad al momento de programar.
 
@@ -133,3 +139,16 @@ La fuente que utilizamos en toda la interfaz fue: **Unna**, que aporta sentido a
 ### 4.4 Aspecto visual
 
 Al ser una interfaz de uso interno para los trabajadores de **Retro Burger** nos parecio conveniente omitir fotos o elementos distractores, es por ello que el menú solo contiene el nombre y el precio de cada producto y los colores para identificar o ubicar fácilmente el producto requerido.
+
+## 6. Acerca de la aplicación
+
+* Interfaz implementada en React.
+* Iconos con Font awensome.
+* Uso de libreria Boostrap.
+* Uso de la base de datos de Firebase.
+
+## 7. Autores
+
+* Macarena Cuevas.
+* Geraldine Villacura.
+* Samantha Moreno.

@@ -1,21 +1,11 @@
 import React from "react";
 import firebase from "../firebaseConfig";
-import logo from "../media/logo.png";
+import SecondsCounter from "./Counter";
+import {ContentHeaderKitchen} from './InitialView';
 import SecondsToString from "./Counter";
 import { idCurrenTime, currentDate } from "../services/MeseroService";
-const db = firebase.firestore();
 
-class ContentHeaderKitchen extends React.Component {
-  render() {
-    return (
-      <header className="header">
-        <div className="containerLogo">
-          <img src={logo} className="logo" alt="logo" />
-        </div>
-      </header>
-    );
-  }
-}
+const db = firebase.firestore();
 
 export class Kitchen extends React.Component {
   constructor(props) {
@@ -76,6 +66,7 @@ export class Kitchen extends React.Component {
   }
 }
 
+
 class OrderTable extends React.Component {
   constructor(props) {
     super(props);
@@ -106,7 +97,6 @@ class OrderTable extends React.Component {
             </div>
             <SecondsToString seconds={this.state.seconds} />
           </div>
-
           <div className="containerContentProductComments">
             <div className="containerContentProduct">{this.props.children}</div>
             <div className="containerComment">

@@ -1,13 +1,612 @@
+/* @font-face {
+  font-family: 'Unna';
+  src: url('./media/Unna-Regular.ttf');
+} */
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  background: #edeedc;
+  font-family: 'Unna', serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+  font-family: 'Unna', serif;
+}
+button{
+  cursor: pointer;
+}
+
+
+/* header */
+.header {
+  height: 118px;
+  width: 100%;
+  background: #5e5e5e;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.App {
+  font-family: 'Unna', serif
+}
+
+.logo {
+  width: 100%;
+}
+
+.bellOff {
+  height: 100%;
+  margin-right: 15px;
+}
+.bellOff:hover{
+  filter: drop-shadow(0px 8px 8px #48ac78);
+}
+
+
+.containerLogo {
+  width: 320px;
+  display: flex;
+  align-items: center;
+}
+
+.containerBellOf {
+  height: 80px;
+}
+
+/* first page */
+.containerButtonsInitial {
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.buttonsInitial {
+  width: 300px;
+  height: 130px;
+  background: #f3f6cb;
+  border: 3px solid #81c9a4;
+  box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
+  margin-bottom: 100px;
+  font-size: 40px;
+  color: #5e5e5e;
+}
+.buttonsInitial:hover,.buttonsTables:hover{
+  box-shadow: 0 0 8px #81c9a4
+}
+
+/* second page */
+.containerTablesView {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+}
+
+.containerButtonsTables {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttonsTables {
+  width: 230px;
+  height: 110px;
+  background: #f3f6cb;
+  border: 3px solid #81c9a4;
+  box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
+  color: #5e5e5e;
+  margin: 0 68px 80px 68px;
+  font-size: 35px;
+}
+
+/* third page */
+.buttonsChoiceMenu {
+  display: flex;
+  flex-direction: row;
+}
+.buttonMenuOff:hover{
+  border: 2px solid #5e5e5e;
+}
+
+.buttonMenuOn {
+  background: #edeedc;
+  width: 50%;
+  height: 72px;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  font-size: 35px;
+  color: #5e5e5e;
+  border: none;
+  flex-wrap: nowrap;
+}
+
+.buttonMenuOff {
+  background: #a9a4a4;
+  width: 50%;
+  height: 72px;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  font-size: 35px;
+  color: #5e5e5e;
+  border: none;
+  flex-wrap: nowrap;
+}
+
+
+/* menu */
+.containerTableNameMenu {
+  display: flex;
+  width: 50%;
+  flex-direction: column;
+}
+
+/* titulo menu */
+.tableName {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  font-size: 40px;
+  text-decoration-line: underline;
+  color: #5E5E5E;
+  margin-top: 50px;
+}
+
+.containerButtonsMenu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 100px;
+  /* align-content: center; */
+}
+
+.buttonMenu {
+  width: 190px;
+  height: 96px;
+  border: 3px solid #f3f6cb;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
+  font-size: 25px;
+  margin: 0 27px 80px 27px;
+}
+
+.buttonDrinkMenu {
+  background: #81c9a4;
+  color: #5e5e5e;
+}
+.buttonDrinkMenu:hover{
+  box-shadow: 0 0 20px #48ac78
+}
+
+.buttonMainMenu {
+  background: #5e5e5e;
+  color: #f3f6cb;
+}
+.buttonMainMenu:hover{
+  box-shadow: 0 0 20px #4b4b4b
+}
+
+.buttonSidesMenu {
+  background: #e6456f;
+  color: #f3f6cb;
+}
+.buttonSidesMenu:hover{
+  box-shadow: 0 0 20px #e03361;
+}
+
+.buttonSubMenu {
+  width: 105px;
+  height: 50px;
+  background: #f3f6cb;
+  border: 2px solid #81c9a4;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
+  font-size: 20px;
+  color: #5e5e5e;
+  margin: 0 10px 45px 18px;
+}
+
+.buttonSubMenuReady {
+  width: 105px;
+  height: 45px;
+  background: #c7c2c2;
+  border: 1px solid rgba(94, 94, 94, 0.76);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+  font-size: 25px;
+  color: #5e5e5e;
+  font-weight: bold;
+  margin-bottom: 80px;
+}
+
+.containerButtonsSubMenu {
+  display: flex;
+  flex-flow: column;
+}
+
+.containerbuttonSubMenuReady {
+  align-self: flex-end;
+}
+
+/* Order Detail */
+.containerViewOrderDetail {
+  display: flex;
+  width: 50%;
+
+  justify-content: center;
+}
+
+.containerOrderDetail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #e5e5e5;
+  border: 5px solid rgba(94, 94, 94, 0.59);
+  width: 370px;
+  height: 950px;
+  margin-top: 50px;
+}
+
+.containerAllPage {
+  display: flex;
+  flex-wrap: wrap
+}
+
+.containerAllOrders {
+  width: 100%;
+}
+
+.containerEachOrder {
+  display: flex;
+  flex-direction: column;
+  height: 130px;
+  width: 100%;
+  justify-content: center;
+  font-size: 25px;
+  border-bottom: 2px dashed #A9A4A4;
+  color: #5E5E5E;
+  font-weight: bold;
+}
+
+.priceOrder {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btnSendOrder {
+  background: #5e5e5e8a;
+  border: 1px solid rgba(94, 94, 94, 0.76);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+  width: 370px;
+  height: 50px;
+  font-size: 25px;
+  color: #5E5E5E;
+  font-weight: bold;
+}
+.btnSendOrder:hover{
+  box-shadow: 0 0 10px #5E5E5E
+}
+
+.btnSendOrder[disabled] {
+  border: 1px solid rgba(94, 94, 94, 0.76);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+  width: 370px;
+  height: 50px;
+  font-size: 25px;
+  color: #5E5E5E;
+  font-weight: bold;
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+textarea {
+  background: #EDEEDC;
+  border: 2px solid rgba(94, 94, 94, 0.5);
+  width: 339px;
+  height: 152px;
+  color: #5E5E5E;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 20px;
+  margin: 10px;
+}
+
+.containerInfoBottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+}
+
+.totalPriceOrder {
+  display: flex;
+  align-self: flex-end;
+  font-weight: bold;
+  font-size: 25px;
+  font-weight: bold;
+  font-size: 25px;
+  margin-right: 20px;
+  color: #5E5E5E;
+}
+
+/* Button Trash */
+.btn-trash {
+  border: none;
+  background: none;
+}
+.btn-trash:hover{
+  filter: drop-shadow(0px 2px 3px #858484);
+}
+
+.btn-line {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.fa-trash-alt {
+  font-size: 2.2em;
+  color: #5e5e5e;
+}
+.trashOrder {
+  display: flex;
+  justify-content: space-between;
+}
+/* Button volver */
+.fa-chevron-left{
+  font-size: 4em;
+  color: #81c9a4;
+  margin-left: 20%;
+}
+
+/* VIEW KITCHEN  */
+.contailerEachOrderKitchen {
+  width: 709px;
+  height: 285px;
+  background: #E5E5E5;
+  border: 5px solid rgba(94, 94, 94, 0.59);
+  margin-top: 80px;
+}
+
+.containerAllOrderKitchen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tableNameKitchen {
+  font-size: 30px;
+  text-decoration-line: underline;
+  color: #5E5E5E;
+}
+
+.tableNameCounter {
+  display: flex;
+  border: 1px solid #000000;
+  height: 58px;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #a9a4a4;
+}
+
+.counterTime {
+  font-size: 30px;
+  color: #5E5E5E;
+}
+
+.contentProduct {
+  display: flex;
+  justify-content: space-between;
+  align-items: space-between;
+  align-content: space-between;
+  font-size: 34px;
+  color: #5E5E5E;
+}
+
+.containerContentProduct {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  border: 1px solid #5E5E5E;
+  height: 208px;
+  padding:10px
+
+}
+
+.containerComment {
+  width: 40%;
+  border: 1px solid #5E5E5E;
+  color: #5E5E5E;
+  font-size: 25px;
+  padding:10px;
+
+}
+
+.containerContentProductComments {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.btnReadyKitchen {
+  background: #5E5E5E;
+  border: 3px solid #A9A4A4;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  width: 200px;
+  height: 60px;
+  color: #FFFBFB;
+  font-size: 34px;
+  justify-self: flex-end;
+}
+.btnReadyKitchen:hover{
+  box-shadow: 0 0 10px #5E5E5E
+}
+
+.containerBtnReadyKitchen {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.containerOrderButton {
+  display: flex;
+  flex-direction: column;
+}
+
+/* modal */
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width:100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.modal-main {
+  position:fixed;
+  width: 40%;
+  height: 30%;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
+  background-color: #e5e5e5;
+  border: 5px solid rgba(94, 94, 94, 0.59);
+  
+}
+.display-block {
+  display: block;
+}
+.display-none {
+  display: none;
+}
+.containerModal{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+.textModal{
+  display: flex;
+  font-size: 35px;
+  color: #5E5E5E;
+  align-content: center;
+  justify-content: center;
+}
+.btnModal{
+  margin-top: 50px;
+  background: #5E5E5E;
+  border: 3px solid #A9A4A4;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  width: 150px;
+  height: 50px;
+  color: #FFFBFB;
+  font-size: 34px;
+}
+.btnModal:hover{
+  box-shadow: 0 0 10px #5E5E5E
+}
+
+/* SubMenuOrders */
+
+.containerSubMenuOrdersClose{
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  transform: translateX(100%);
+  top: 118px;
+  right: -1;
+  width: 350px;
+  height: 272px;
+  border: 1px solid #000000;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease-in-out;
+}
+.containerSubMenuOrdersOpen{
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  transform: translateX(0%);
+  top: 118px;
+  right: 0px;
+  width: 350px;
+  height: 272px;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease-in-out;
+}
+.containerEachOrderSubMenu{
+  display: flex;
+  align-content: center;
+  height: 45px;
+  width: 100%;
+  background: #C4C4C4;
+  border: 1px solid #000000;
+  font-size: 25px;
+  color: #5E5E5E;
+  font-weight: bold;
+}
+.containerEachOrderSubMenu:hover{
+  box-shadow: 0 0 20px #5E5E5E
+}
+
+@media screen and (min-width:1366px) {
+  .containerButtonsInitial {
+    height: 80vh;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  /* second page */
+  .containerTablesView {
+    height: 80vh;
+  }
+
+  .containerButtonsTables {
+    margin-right: 50px;
+    margin-left: 50px;
+  }
+
+  .tableName {
+    margin-top: 30px;
+  }
+
+  /* menu */
+  .containerTableNameMenu {
+    width: 62%;
+  }
+
+  .buttonMenu {
+    width: 165px;
+    height: 96px;
+    margin: 0 20px 100px 20px;
+  }
+
+  .containerViewOrderDetail {
+    width: 38%;
+  }
+
+  .containerOrderDetail {
+    height: 600px;
+    margin-top: 30px;
+  }
+
+  textarea {
+    background: #EDEEDC;
+    border: 2px solid rgba(94, 94, 94, 0.5);
+    width: 339px;
+    height: 100px;
+    color: #5E5E5E;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 20px;
+    margin: 10px;
+  }
+
 }

@@ -1,33 +1,31 @@
-import React from 'react';
-import './App.css';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
-import { View } from './components/InitialView.js';
-import { Tables } from './components/TablesView.js';
-import { Menu } from './components/MenuView.js'
+import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { View } from "./components/InitialView.js";
+import { Tables } from "./components/TablesView.js";
+import { ContentMenuOrderDetail } from "./components/MenuView.js";
+import { Kitchen } from "./components/KitchenView.js";
 
 class App extends React.Component {
-  render(){
+  render() {
     return (
-    <Router>   
-      <Switch>
-        <Route exact path="/">
-          <View />
-        </Route>
-        <Route exact path="/mesero">
-          <Tables />
-        </Route>
-        <Route exact path="/mesero/mesa">
-          <Menu />
-        </Route>
-      </Switch>
-    </Router>
-  );
-  };
+      <Router>
+        <Switch>
+          <Route exact path="/">
+            <View />
+          </Route>
+          <Route exact path="/mesero">
+            <Tables />
+          </Route>
+          <Route exact path="/mesero/mesa">
+            <ContentMenuOrderDetail />
+          </Route>
+          <Route exact path="/cocinero">
+            <Kitchen />
+          </Route>
+        </Switch>
+      </Router>
+    );
+  }
 }
-export default App;
 
+export default App;

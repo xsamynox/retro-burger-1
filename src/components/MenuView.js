@@ -59,27 +59,31 @@ export class ContentMenuOrderDetail extends React.Component {
 
   deleteItems = (index) => {
     const filterOrderTable = this.state.orderTable.filter((item, idIndex) => {
-      item.cantidad = 0;
+      if (idIndex === index) {
+        item.cantidad = 0;
+      }
+
       return idIndex !== index;
     });
+
     this.setState({
       orderTable: filterOrderTable,
-    })
+    });
   };
 
   handleSubtract = (indexSelectec) => {
     const tempArray = this.state.orderTable.map((item, indexMap) => {
       if (indexMap === indexSelectec && item.cantidad > 1) {
         const newQuantity = --item.cantidad;
-        item.cantidad = newQuantity
-        item.preciototal = item.precio * newQuantity
+        item.cantidad = newQuantity;
+        item.preciototal = item.precio * newQuantity;
         return item;
       }
       return item;
-    })
+    });
 
-    this.setState({ orderTable: tempArray })
-  }
+    this.setState({ orderTable: tempArray });
+  };
 
   render() {
     let classMenuLunch =
@@ -128,7 +132,7 @@ export class ContentMenuOrderDetail extends React.Component {
 class OrderDetail extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { comments: ""};
+    this.state = { comments: "" };
   }
 
   handleChange(event) {
@@ -195,7 +199,11 @@ class OrderDetail extends React.Component {
 class SendOrder extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { orderState: "En proceso", buttonIsDisabled: true, modalVisibility: false};
+    this.state = {
+      orderState: "En proceso",
+      buttonIsDisabled: true,
+      modalVisibility: false,
+    };
   }
   componentDidMount() {
     let buttonIsDisabled;
@@ -228,14 +236,14 @@ class SendOrder extends React.Component {
 
   handleClickSendOrder(orderTable, totalPrice) {
     const stateOrder = this.state.orderState;
-    this.setState({modalVisibility:true})
+    this.setState({ modalVisibility: true });
     saveOrder(orderTable, totalPrice, stateOrder, this.props.comments);
   }
 
   render() {
-    return ( 
+    return (
       <div>
-        <Modal modalVisibility={this.state.modalVisibility}/>
+        <Modal modalVisibility={this.state.modalVisibility} />
         <button
           className="btnSendOrder"
           disabled={this.state.buttonIsDisabled}
@@ -329,16 +337,19 @@ class Menu extends React.Component {
 }
 
 const Modal = ({ modalVisibility }) => {
-  const classModal = modalVisibility ? "modal display-block" : "modal display-none";
+  const classModal = modalVisibility
+    ? "modal display-block"
+    : "modal display-none";
   return (
     <div className={classModal}>
       <section className="modal-main">
         <div className="containerModal">
           <label className="textModal">Haz enviado el pedido a cocina</label>
-          <Link to="/mesero"><button className="btnModal">VOLVER</button></Link>
+          <Link to="/mesero">
+            <button className="btnModal">VOLVER</button>
+          </Link>
         </div>
       </section>
     </div>
   );
 };
-

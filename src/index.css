@@ -13,8 +13,10 @@ body {
 * {
   font-family: 'Unna', serif;
 }
-button{
+
+button {
   cursor: pointer;
+  outline: none;
 }
 
 
@@ -40,7 +42,8 @@ button{
   height: 100%;
   margin-right: 15px;
 }
-.bellOff:hover{
+
+.bellOff:hover {
   filter: drop-shadow(0px 8px 8px #48ac78);
 }
 
@@ -63,6 +66,7 @@ button{
   justify-content: center;
   align-items: center;
 }
+
 .buttonsInitial {
   width: 300px;
   height: 130px;
@@ -74,7 +78,9 @@ button{
   font-size: 40px;
   color: #5e5e5e;
 }
-.buttonsInitial:hover,.buttonsTables:hover{
+
+.buttonsInitial:hover,
+.buttonsTables:hover {
   box-shadow: 0 0 8px #81c9a4
 }
 
@@ -110,7 +116,8 @@ button{
   display: flex;
   flex-direction: row;
 }
-.buttonMenuOff:hover{
+
+.buttonMenuOff:hover {
   border: 2px solid #5e5e5e;
 }
 
@@ -179,7 +186,8 @@ button{
   background: #81c9a4;
   color: #5e5e5e;
 }
-.buttonDrinkMenu:hover{
+
+.buttonDrinkMenu:hover {
   box-shadow: 0 0 20px #48ac78
 }
 
@@ -187,7 +195,8 @@ button{
   background: #5e5e5e;
   color: #f3f6cb;
 }
-.buttonMainMenu:hover{
+
+.buttonMainMenu:hover {
   box-shadow: 0 0 20px #4b4b4b
 }
 
@@ -195,7 +204,8 @@ button{
   background: #e6456f;
   color: #f3f6cb;
 }
-.buttonSidesMenu:hover{
+
+.buttonSidesMenu:hover {
   box-shadow: 0 0 20px #e03361;
 }
 
@@ -287,7 +297,8 @@ button{
   color: #5E5E5E;
   font-weight: bold;
 }
-.btnSendOrder:hover{
+
+.btnSendOrder:hover {
   box-shadow: 0 0 10px #5E5E5E
 }
 
@@ -338,7 +349,8 @@ textarea {
   border: none;
   background: none;
 }
-.btn-trash:hover{
+
+.btn-trash:hover {
   filter: drop-shadow(0px 2px 3px #858484);
 }
 
@@ -351,12 +363,14 @@ textarea {
   font-size: 2.2em;
   color: #5e5e5e;
 }
+
 .trashOrder {
   display: flex;
   justify-content: space-between;
 }
+
 /* Button volver */
-.fa-chevron-left{
+.fa-chevron-left {
   font-size: 4em;
   color: #81c9a4;
   margin-left: 20%;
@@ -413,8 +427,7 @@ textarea {
   width: 60%;
   border: 1px solid #5E5E5E;
   height: 208px;
-  padding:10px
-
+  padding: 10px
 }
 
 .containerComment {
@@ -422,7 +435,7 @@ textarea {
   border: 1px solid #5E5E5E;
   color: #5E5E5E;
   font-size: 25px;
-  padding:10px;
+  padding: 10px;
 
 }
 
@@ -441,7 +454,8 @@ textarea {
   font-size: 34px;
   justify-self: flex-end;
 }
-.btnReadyKitchen:hover{
+
+.btnReadyKitchen:hover {
   box-shadow: 0 0 10px #5E5E5E
 }
 
@@ -461,44 +475,49 @@ textarea {
   position: fixed;
   top: 0;
   left: 0;
-  width:100%;
+  width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.6);
 }
 
 .modal-main {
-  position:fixed;
+  position: fixed;
   width: 40%;
   height: 30%;
-  top:50%;
-  left:50%;
-  transform: translate(-50%,-50%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
   border-radius: 15px;
   background-color: #e5e5e5;
   border: 5px solid rgba(94, 94, 94, 0.59);
-  
+
 }
+
 .display-block {
   display: block;
 }
+
 .display-none {
   display: none;
 }
-.containerModal{
+
+.containerModal {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 50px;
 }
-.textModal{
+
+.textModal {
   display: flex;
   font-size: 35px;
   color: #5E5E5E;
   align-content: center;
   justify-content: center;
 }
-.btnModal{
+
+.btnModal {
   margin-top: 50px;
   background: #5E5E5E;
   border: 3px solid #A9A4A4;
@@ -508,13 +527,14 @@ textarea {
   color: #FFFBFB;
   font-size: 34px;
 }
-.btnModal:hover{
+
+.btnModal:hover {
   box-shadow: 0 0 10px #5E5E5E
 }
 
 /* SubMenuOrders */
 
-.containerSubMenuOrdersClose{
+.containerSubMenuOrdersClose {
   display: flex;
   flex-direction: column;
   position: fixed;
@@ -527,7 +547,8 @@ textarea {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.4);
   transition: transform 0.3s ease-in-out;
 }
-.containerSubMenuOrdersOpen{
+
+.containerSubMenuOrdersOpen {
   display: flex;
   flex-direction: column;
   position: fixed;
@@ -541,7 +562,8 @@ textarea {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.4);
   transition: transform 0.3s ease-in-out;
 }
-.containerEachOrderSubMenu{
+
+.containerEachOrderSubMenu {
   display: flex;
   align-content: center;
   height: 45px;
@@ -552,15 +574,47 @@ textarea {
   color: #5E5E5E;
   font-weight: bold;
 }
-.containerEachOrderSubMenu:hover{
+
+.containerEachOrderSubMenu:hover {
   box-shadow: 0 0 20px #5E5E5E
 }
 
-@media screen and (min-width:1366px) {
+@media screen and (min-width:1024px) and (min-height:) {
+
+  #root {
+    margin: 14px auto;
+    width: 60%;
+  }
+
+  .header {
+    height: 65px;
+    width: 100%;
+    background: #5e5e5e;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    width: 54%;
+  }
+
+  .bellOff {
+    height: 62%;
+    margin: 15px;
+  }
+
   .containerButtonsInitial {
     height: 80vh;
     flex-direction: row;
     justify-content: space-evenly;
+  }
+
+  .buttonsTables {
+    width: 146px;
+    height: 75px;
+    margin: 30px 20px;
+    font-size: 27px;
   }
 
   /* second page */
@@ -583,9 +637,10 @@ textarea {
   }
 
   .buttonMenu {
-    width: 165px;
-    height: 96px;
-    margin: 0 20px 100px 20px;
+    width: 144px;
+    height: 82px;
+    margin: 0 5px 37px 26px;
+    font-size: 22px;
   }
 
   .containerViewOrderDetail {

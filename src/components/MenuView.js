@@ -3,6 +3,7 @@ import { ContentHeader } from "./TablesView";
 import { saveOrder } from "../services/MeseroService";
 import { Almuerzo, Desayuno } from "../data/menu.json";
 import { Link } from "react-router-dom";
+import minus from "../media/minus.png"
 
 export class ContentMenuOrderDetail extends React.Component {
   constructor(props) {
@@ -50,10 +51,9 @@ export class ContentMenuOrderDetail extends React.Component {
   handleReset = () => {
     const optionMenu = this.state.optionMenu;
     this.setState({ orderTable: [], totalPrice: 0 });
-
+    // eslint-disable-next-line array-callback-return
     optionMenu.map((item) => {
       item.cantidad = 0;
-      item.preciototal = 0;
     });
   };
 
@@ -61,8 +61,8 @@ export class ContentMenuOrderDetail extends React.Component {
     const filterOrderTable = this.state.orderTable.filter((item, idIndex) => {
       if (idIndex === index) {
         item.cantidad = 0;
+        item.preciototal = 0
       }
-
       return idIndex !== index;
     });
 
@@ -145,6 +145,9 @@ class OrderDetail extends React.Component {
         <div className="containerEachOrder" key={item.nombre}>
           <div className="trashOrder">
             <div>
+              <button className="btn-trash"
+                onClick={() => this.props.handleSubtract(idIndex)}><img src={minus} alt="menos"></img>
+              </button>
               {item.nombre} x {item.cantidad}
             </div>
             <div>
@@ -155,14 +158,6 @@ class OrderDetail extends React.Component {
                 <i className="fas fa-trash-alt"></i>
               </button>
             </div>
-          </div>
-          <div>
-            <button
-              className="btn-trash btn-line"
-              onClick={() => this.props.handleSubtract(idIndex)}
-            >
-              -
-            </button>
           </div>
           <div className="priceOrder">${item.preciototal}</div>
         </div>
@@ -238,6 +233,7 @@ class SendOrder extends React.Component {
     const stateOrder = this.state.orderState;
     this.setState({ modalVisibility: true });
     saveOrder(orderTable, totalPrice, stateOrder, this.props.comments);
+    this.props.handleReset()
   }
 
   render() {
@@ -346,7 +342,7 @@ const Modal = ({ modalVisibility }) => {
         <div className="containerModal">
           <label className="textModal">Haz enviado el pedido a cocina</label>
           <Link to="/mesero">
-            <button className="btnModal">VOLVER</button>
+            <button className="btnModal">Volver</button>
           </Link>
         </div>
       </section>

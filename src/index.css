@@ -1,22 +1,15 @@
-/* @font-face {
-  font-family: 'Unna';
-  src: url('./media/Unna-Regular.ttf');
-} */
-
+* {
+  font-family: 'Unna', serif;
+}
 body {
   margin: 0;
   padding: 0;
   background: #edeedc;
   font-family: 'Unna', serif;
 }
-
-* {
-  font-family: 'Unna', serif;
-}
 button{
   cursor: pointer;
 }
-
 
 /* header */
 .header {
@@ -27,37 +20,31 @@ button{
   align-items: center;
   justify-content: space-between;
 }
-
 .App {
   font-family: 'Unna', serif
 }
-
 .logo {
   width: 100%;
 }
-
 .bellOff {
-  height: 100%;
-  margin-right: 15px;
+  height: 90%;
+  margin-right: 25px;
 }
 .bellOff:hover{
   filter: drop-shadow(0px 8px 8px #48ac78);
 }
-
-
 .containerLogo {
   width: 320px;
   display: flex;
   align-items: center;
 }
-
 .containerBellOf {
   height: 80px;
 }
 
 /* first page */
 .containerButtonsInitial {
-  height: 90vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -71,7 +58,7 @@ button{
   box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.3);
   border-radius: 15px;
   margin-bottom: 100px;
-  font-size: 40px;
+  font-size: 2.5em;
   color: #5e5e5e;
 }
 .buttonsInitial:hover,.buttonsTables:hover{
@@ -83,16 +70,14 @@ button{
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 90vh;
+  height: 100vh;
 }
-
 .containerButtonsTables {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 }
-
 .buttonsTables {
   width: 230px;
   height: 110px;
@@ -102,7 +87,7 @@ button{
   border-radius: 15px;
   color: #5e5e5e;
   margin: 0 68px 80px 68px;
-  font-size: 35px;
+  font-size: 2.2em;
 }
 
 /* third page */
@@ -113,31 +98,28 @@ button{
 .buttonMenuOff:hover{
   border: 2px solid #5e5e5e;
 }
-
 .buttonMenuOn {
   background: #edeedc;
   width: 50%;
   height: 72px;
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
-  font-size: 35px;
+  font-size: 2.2em;
   color: #5e5e5e;
   border: none;
   flex-wrap: nowrap;
 }
-
 .buttonMenuOff {
   background: #a9a4a4;
   width: 50%;
   height: 72px;
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
-  font-size: 35px;
+  font-size: 2.2em;
   color: #5e5e5e;
   border: none;
   flex-wrap: nowrap;
 }
-
 
 /* menu */
 .containerTableNameMenu {
@@ -151,30 +133,27 @@ button{
   display: flex;
   justify-content: center;
   width: 100%;
-  font-size: 40px;
+  font-size: 2.5em;
   text-decoration-line: underline;
   color: #5E5E5E;
   margin-top: 50px;
+  font-weight: bold;
 }
-
 .containerButtonsMenu {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 100px;
-  /* align-content: center; */
 }
-
 .buttonMenu {
   width: 190px;
   height: 96px;
   border: 3px solid #f3f6cb;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
   border-radius: 15px;
-  font-size: 25px;
+  font-size: 1.6em;
   margin: 0 27px 80px 27px;
 }
-
 .buttonDrinkMenu {
   background: #81c9a4;
   color: #5e5e5e;
@@ -182,7 +161,6 @@ button{
 .buttonDrinkMenu:hover{
   box-shadow: 0 0 20px #48ac78
 }
-
 .buttonMainMenu {
   background: #5e5e5e;
   color: #f3f6cb;
@@ -190,7 +168,6 @@ button{
 .buttonMainMenu:hover{
   box-shadow: 0 0 20px #4b4b4b
 }
-
 .buttonSidesMenu {
   background: #e6456f;
   color: #f3f6cb;
@@ -198,8 +175,7 @@ button{
 .buttonSidesMenu:hover{
   box-shadow: 0 0 20px #e03361;
 }
-
-.buttonSubMenu {
+/* .buttonSubMenu {
   width: 105px;
   height: 50px;
   background: #f3f6cb;
@@ -209,9 +185,9 @@ button{
   font-size: 20px;
   color: #5e5e5e;
   margin: 0 10px 45px 18px;
-}
+} */
 
-.buttonSubMenuReady {
+/* .buttonSubMenuReady {
   width: 105px;
   height: 45px;
   background: #c7c2c2;
@@ -221,25 +197,23 @@ button{
   color: #5e5e5e;
   font-weight: bold;
   margin-bottom: 80px;
-}
+} */
 
-.containerButtonsSubMenu {
+/* .containerButtonsSubMenu {
   display: flex;
   flex-flow: column;
 }
 
 .containerbuttonSubMenuReady {
   align-self: flex-end;
-}
+} */
 
 /* Order Detail */
 .containerViewOrderDetail {
   display: flex;
   width: 50%;
-
   justify-content: center;
 }
-
 .containerOrderDetail {
   display: flex;
   flex-direction: column;
@@ -250,33 +224,28 @@ button{
   height: 950px;
   margin-top: 50px;
 }
-
 .containerAllPage {
   display: flex;
   flex-wrap: wrap
 }
-
 .containerAllOrders {
   width: 100%;
 }
-
 .containerEachOrder {
   display: flex;
   flex-direction: column;
-  height: 130px;
+  height: 110px;
   width: 100%;
   justify-content: center;
-  font-size: 25px;
+  font-size: 1.6em;
   border-bottom: 2px dashed #A9A4A4;
   color: #5E5E5E;
   font-weight: bold;
 }
-
 .priceOrder {
   display: flex;
   justify-content: flex-end;
 }
-
 .btnSendOrder {
   background: #5e5e5e8a;
   border: 1px solid rgba(94, 94, 94, 0.76);
@@ -290,7 +259,6 @@ button{
 .btnSendOrder:hover{
   box-shadow: 0 0 10px #5E5E5E
 }
-
 .btnSendOrder[disabled] {
   border: 1px solid rgba(94, 94, 94, 0.76);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
@@ -302,7 +270,6 @@ button{
   opacity: 0.6;
   cursor: not-allowed;
 }
-
 textarea {
   background: #EDEEDC;
   border: 2px solid rgba(94, 94, 94, 0.5);
@@ -311,10 +278,9 @@ textarea {
   color: #5E5E5E;
   font-style: italic;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 1.4em;
   margin: 10px;
 }
-
 .containerInfoBottom {
   display: flex;
   flex-direction: column;
@@ -326,9 +292,7 @@ textarea {
   display: flex;
   align-self: flex-end;
   font-weight: bold;
-  font-size: 25px;
-  font-weight: bold;
-  font-size: 25px;
+  font-size: 1.7em;
   margin-right: 20px;
   color: #5E5E5E;
 }
@@ -345,6 +309,8 @@ textarea {
 .btn-line {
   font-size: 1.5em;
   font-weight: bold;
+  background: none;
+  border-radius: 1em;
 }
 
 .fa-trash-alt {
@@ -378,9 +344,10 @@ textarea {
 }
 
 .tableNameKitchen {
-  font-size: 30px;
+  font-size: 2em;
   text-decoration-line: underline;
   color: #5E5E5E;
+  font-weight: bolder;
 }
 
 .tableNameCounter {
@@ -435,11 +402,12 @@ textarea {
   background: #5E5E5E;
   border: 3px solid #A9A4A4;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  width: 200px;
+  width: 170px;
   height: 60px;
-  color: #FFFBFB;
-  font-size: 34px;
+  color: #edeedc;
+  font-size: 2em;
   justify-self: flex-end;
+  margin-top: 1%;
 }
 .btnReadyKitchen:hover{
   box-shadow: 0 0 10px #5E5E5E
@@ -467,15 +435,15 @@ textarea {
 }
 
 .modal-main {
-  position:fixed;
-  width: 40%;
-  height: 30%;
-  top:50%;
-  left:50%;
+  position: fixed;
+  width: 50%;
+  height: 20%;
+  top: 50%;
+  left: 50%;
   transform: translate(-50%,-50%);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
   border-radius: 15px;
-  background-color: #e5e5e5;
+  background-color: #edeedc;
   border: 5px solid rgba(94, 94, 94, 0.59);
   
 }
@@ -499,21 +467,20 @@ textarea {
   justify-content: center;
 }
 .btnModal{
-  margin-top: 50px;
+  margin-top: 55px;
   background: #5E5E5E;
   border: 3px solid #A9A4A4;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  width: 150px;
-  height: 50px;
-  color: #FFFBFB;
-  font-size: 34px;
+  width: 160px;
+  height: 60px;
+  color: #edeedc;
+  font-size: 2.3em;
 }
 .btnModal:hover{
   box-shadow: 0 0 10px #5E5E5E
 }
 
 /* SubMenuOrders */
-
 .containerSubMenuOrdersClose{
   display: flex;
   flex-direction: column;
@@ -555,17 +522,27 @@ textarea {
 .containerEachOrderSubMenu:hover{
   box-shadow: 0 0 20px #5E5E5E
 }
+/* reloj */
+.fa-clock{
+font-weight: bold;
+color: #edeedc;
+}
+.time {
+  font-size: 1.8em;
+  font-weight: bold;
+  color: #edeedc;
+}
 
 @media screen and (min-width:1366px) {
   .containerButtonsInitial {
-    height: 80vh;
+    height: 100vh;
     flex-direction: row;
     justify-content: space-evenly;
   }
 
   /* second page */
   .containerTablesView {
-    height: 80vh;
+    height: 100vh;
   }
 
   .containerButtonsTables {
@@ -605,7 +582,7 @@ textarea {
     color: #5E5E5E;
     font-style: italic;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 1.4em;
     margin: 10px;
   }
 

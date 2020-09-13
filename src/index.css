@@ -1,22 +1,38 @@
-/* @font-face {
-  font-family: 'Unna';
-  src: url('./media/Unna-Regular.ttf');
-} */
+
+* {
+  font-family: 'Unna', serif;
+}
 
 body {
   margin: 0;
   padding: 0;
   background: #edeedc;
-  font-family: 'Unna', serif;
-}
-
-* {
-  font-family: 'Unna', serif;
 }
 button{
   cursor: pointer;
 }
 
+a {
+  width: 37%;
+  height: 20%;
+  text-align: center;
+}
+.containerInitialView {
+  height: 100vh;
+}
+
+.comtainerAllTablesView {
+  height: 100vh;
+}
+
+.containerHeaderAndOptionsMenu {
+  width: 100%;
+}
+
+button {
+  cursor: pointer;
+  outline: none;
+}
 
 /* header */
 .header {
@@ -29,7 +45,7 @@ button{
 }
 
 .App {
-  font-family: 'Unna', serif
+  font-family: "Unna", serif;
 }
 
 .logo {
@@ -37,13 +53,13 @@ button{
 }
 
 .bellOff {
-  height: 100%;
-  margin-right: 15px;
-}
-.bellOff:hover{
-  filter: drop-shadow(0px 8px 8px #48ac78);
+  height: 90%;
+  margin-right: 25px;
 }
 
+.bellOff:hover {
+  filter: drop-shadow(0px 8px 8px #48ac78);
+}
 
 .containerLogo {
   width: 320px;
@@ -57,12 +73,13 @@ button{
 
 /* first page */
 .containerButtonsInitial {
-  height: 90vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
+
 .buttonsInitial {
   width: 300px;
   height: 130px;
@@ -71,11 +88,13 @@ button{
   box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.3);
   border-radius: 15px;
   margin-bottom: 100px;
-  font-size: 40px;
+  font-size: 2.5em;
   color: #5e5e5e;
 }
-.buttonsInitial:hover,.buttonsTables:hover{
-  box-shadow: 0 0 8px #81c9a4
+
+.buttonsInitial:hover,
+.buttonsTables:hover {
+  box-shadow: 0 0 8px #81c9a4;
 }
 
 /* second page */
@@ -83,16 +102,14 @@ button{
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 90vh;
+  height: 100vh;
 }
-
 .containerButtonsTables {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 }
-
 .buttonsTables {
   width: 230px;
   height: 110px;
@@ -102,7 +119,7 @@ button{
   border-radius: 15px;
   color: #5e5e5e;
   margin: 0 68px 80px 68px;
-  font-size: 35px;
+  font-size: 2.2em;
 }
 
 /* third page */
@@ -110,17 +127,17 @@ button{
   display: flex;
   flex-direction: row;
 }
-.buttonMenuOff:hover{
+
+.buttonMenuOff:hover {
   border: 2px solid #5e5e5e;
 }
-
 .buttonMenuOn {
   background: #edeedc;
   width: 50%;
   height: 72px;
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
-  font-size: 35px;
+  font-size: 2.2em;
+  border-radius: 0 0 10px 10px;
   color: #5e5e5e;
   border: none;
   flex-wrap: nowrap;
@@ -131,13 +148,12 @@ button{
   width: 50%;
   height: 72px;
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
-  font-size: 35px;
+  font-size: 2.2em;
+  border-radius: 0 0 10px 10px;
   color: #5e5e5e;
   border: none;
   flex-wrap: nowrap;
 }
-
 
 /* menu */
 .containerTableNameMenu {
@@ -151,55 +167,52 @@ button{
   display: flex;
   justify-content: center;
   width: 100%;
-  font-size: 40px;
+  font-size: 2.5em;
   text-decoration-line: underline;
-  color: #5E5E5E;
+  color: #5e5e5e;
   margin-top: 50px;
+  font-weight: bold;
 }
-
 .containerButtonsMenu {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 100px;
-  /* align-content: center; */
 }
-
 .buttonMenu {
   width: 190px;
   height: 96px;
   border: 3px solid #f3f6cb;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
   border-radius: 15px;
-  font-size: 25px;
+  font-size: 1.6em;
   margin: 0 27px 80px 27px;
 }
-
 .buttonDrinkMenu {
   background: #81c9a4;
   color: #5e5e5e;
 }
-.buttonDrinkMenu:hover{
-  box-shadow: 0 0 20px #48ac78
-}
 
+.buttonDrinkMenu:hover {
+  box-shadow: 0 0 20px #48ac78;
+}
 .buttonMainMenu {
   background: #5e5e5e;
   color: #f3f6cb;
 }
-.buttonMainMenu:hover{
-  box-shadow: 0 0 20px #4b4b4b
-}
 
+.buttonMainMenu:hover {
+  box-shadow: 0 0 20px #4b4b4b;
+}
 .buttonSidesMenu {
   background: #e6456f;
   color: #f3f6cb;
 }
-.buttonSidesMenu:hover{
+
+.buttonSidesMenu:hover {
   box-shadow: 0 0 20px #e03361;
 }
-
-.buttonSubMenu {
+/* .buttonSubMenu {
   width: 105px;
   height: 50px;
   background: #f3f6cb;
@@ -209,9 +222,9 @@ button{
   font-size: 20px;
   color: #5e5e5e;
   margin: 0 10px 45px 18px;
-}
+} */
 
-.buttonSubMenuReady {
+/* .buttonSubMenuReady {
   width: 105px;
   height: 45px;
   background: #c7c2c2;
@@ -221,16 +234,16 @@ button{
   color: #5e5e5e;
   font-weight: bold;
   margin-bottom: 80px;
-}
+} */
 
-.containerButtonsSubMenu {
+/* .containerButtonsSubMenu {
   display: flex;
   flex-flow: column;
 }
 
 .containerbuttonSubMenuReady {
   align-self: flex-end;
-}
+} */
 
 /* Order Detail */
 .containerViewOrderDetail {
@@ -238,34 +251,30 @@ button{
   width: 50%;
   justify-content: center;
 }
-
 .containerOrderDetail {
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: #e5e5e5;
   border: 5px solid rgba(94, 94, 94, 0.59);
-  width: 370px;
+  width: 100%;
   height: 950px;
   margin-top: 50px;
 }
-
 .containerAllPage {
   display: flex;
-  flex-wrap: wrap
+  flex-wrap: wrap;
 }
-
 .containerAllOrders {
   width: 100%;
 }
-
 .containerEachOrder {
   display: flex;
   flex-direction: column;
-  height: 130px;
+  height: 110px;
   width: 100%;
   justify-content: center;
-  font-size: 25px;
+  font-size: 1.6em;
   border-bottom: 2px dashed #A9A4A4;
   color: #5E5E5E;
   font-weight: bold;
@@ -280,41 +289,36 @@ button{
   background: #5e5e5e8a;
   border: 1px solid rgba(94, 94, 94, 0.76);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
-  width: 370px;
+  width: 100%;
   height: 50px;
   font-size: 25px;
-  color: #5E5E5E;
+  color: #5e5e5e;
   font-weight: bold;
 }
-.btnSendOrder:hover{
-  box-shadow: 0 0 10px #5E5E5E
-}
 
+.btnSendOrder:hover {
+  box-shadow: 0 0 10px #5e5e5e;
+}
 .btnSendOrder[disabled] {
-  /* border: 1px solid rgba(94, 94, 94, 0.76);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5); */
-  width: 370px;
   height: 50px;
   font-size: 25px;
   color: #999999;
   font-weight: none;
   background-color: #d3d1d1;
+  width: 100%;
   cursor: not-allowed;
   box-shadow: none;
 }
-.btnSendOrder[disabled]:hover:not{
-  box-shadow: 0 0 10px #5E5E5E
-}
 
 textarea {
-  background: #EDEEDC;
+  background: #edeedc;
   border: 2px solid rgba(94, 94, 94, 0.5);
-  width: 339px;
+  width: 98%;
   height: 152px;
-  color: #5E5E5E;
+  color: #5e5e5e;
   font-style: italic;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 1.4em;
   margin: 10px;
 }
 
@@ -323,17 +327,16 @@ textarea {
   flex-direction: column;
   justify-content: flex-end;
   height: 100%;
+  width: 100%;
 }
 
 .totalPriceOrder {
   display: flex;
   align-self: flex-end;
   font-weight: bold;
-  font-size: 25px;
-  font-weight: bold;
-  font-size: 25px;
+  font-size: 1.7em;
   margin-right: 20px;
-  color: #5E5E5E;
+  color: #5e5e5e;
 }
 
 /* Button Trash */
@@ -341,25 +344,30 @@ textarea {
   border: none;
   background: none;
 }
-.btn-trash:hover{
+
+.btn-trash:hover {
   filter: drop-shadow(0px 2px 3px #858484);
 }
 
 .btn-line {
   font-size: 1.5em;
   font-weight: bold;
+  background: none;
+  border-radius: 1em;
 }
 
 .fa-trash-alt {
   font-size: 2.2em;
   color: #5e5e5e;
 }
+
 .trashOrder {
   display: flex;
   justify-content: space-between;
 }
+
 /* Button volver */
-.fa-chevron-left{
+.fa-chevron-left {
   font-size: 4em;
   color: #81c9a4;
   margin-left: 20%;
@@ -367,23 +375,25 @@ textarea {
 
 /* VIEW KITCHEN  */
 .contailerEachOrderKitchen {
-  width: 709px;
+  width: 90%;
   height: 285px;
-  background: #E5E5E5;
+  background: #e5e5e5;
   border: 5px solid rgba(94, 94, 94, 0.59);
-  margin-top: 80px;
+  margin-top: 10px;
 }
 
 .containerAllOrderKitchen {
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100%;
 }
 
 .tableNameKitchen {
-  font-size: 30px;
+  font-size: 2em;
   text-decoration-line: underline;
-  color: #5E5E5E;
+  font-weight: bolder;
+  color: #5e5e5e;
 }
 
 .tableNameCounter {
@@ -398,7 +408,7 @@ textarea {
 
 .counterTime {
   font-size: 30px;
-  color: #5E5E5E;
+  color: #5e5e5e;
 }
 
 .contentProduct {
@@ -407,24 +417,24 @@ textarea {
   align-items: space-between;
   align-content: space-between;
   font-size: 34px;
-  color: #5E5E5E;
+  color: #5e5e5e;
 }
 
 .containerContentProduct {
   display: flex;
   flex-direction: column;
   width: 60%;
-  border: 1px solid #5E5E5E;
+  border: 1px solid #5e5e5e;
   height: 208px;
-  padding:10px
+  padding: 10px;
 }
 
 .containerComment {
   width: 40%;
-  border: 1px solid #5E5E5E;
-  color: #5E5E5E;
+  border: 1px solid #5e5e5e;
+  color: #5e5e5e;
   font-size: 25px;
-  padding:10px;
+  padding: 10px;
 }
 
 .containerContentProductComments {
@@ -433,27 +443,31 @@ textarea {
 }
 
 .btnReadyKitchen {
-  background: #5E5E5E;
-  border: 3px solid #A9A4A4;
+  background: #5e5e5e;
+  border: 3px solid #a9a4a4;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  width: 200px;
+  width: 170px;
   height: 60px;
-  color: #FFFBFB;
-  font-size: 34px;
+  color: #edeedc;
+  font-size: 2em;
   justify-self: flex-end;
+  margin-top: 1%;
 }
-.btnReadyKitchen:hover{
-  box-shadow: 0 0 10px #5E5E5E
+
+.btnReadyKitchen:hover {
+  box-shadow: 0 0 10px #5e5e5e;
 }
 
 .containerBtnReadyKitchen {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
 }
 
 .containerOrderButton {
+  width: 100%;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 /* modal send order*/
@@ -462,59 +476,64 @@ textarea {
   position: fixed;
   top: 0;
   left: 0;
-  width:100%;
+  width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.7);
 }
 
 .modal-main {
-  position:fixed;
-  width: 40%;
-  height: 30%;
-  top:50%;
-  left:50%;
+  position: fixed;
+  width: 50%;
+  height: 20%;
+  top: 50%;
+  left: 50%;
   transform: translate(-50%,-50%);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
   border-radius: 15px;
-  background-color: #e5e5e5;
+  background-color: #edeedc;
   border: 5px solid rgba(94, 94, 94, 0.59);
 }
+
 .display-block {
   display: block;
 }
+
 .display-none {
   display: none;
 }
-.containerModal{
+
+.containerModal {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 50px;
 }
-.textModal{
+
+.textModal {
   display: flex;
   font-size: 35px;
-  color: #5E5E5E;
+  color: #5e5e5e;
   align-content: center;
   justify-content: center;
 }
+
 .btnModal{
-  margin-top: 50px;
+  margin-top: 55px;
   background: #5E5E5E;
   border: 3px solid #A9A4A4;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  width: 150px;
-  height: 50px;
-  color: #FFFBFB;
-  font-size: 34px;
+  width: 160px;
+  height: 60px;
+  color: #edeedc;
+  font-size: 2.3em;
 }
-.btnModal:hover{
-  box-shadow: 0 0 10px #5E5E5E
+
+.btnModal:hover {
+  box-shadow: 0 0 10px #5e5e5e;
 }
 
 /* SubMenuOrders */
-
-.containerSubMenuOrdersClose{
+.containerSubMenuOrdersClose {
   display: flex;
   flex-direction: column;
   position: fixed;
@@ -527,7 +546,8 @@ textarea {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.4);
   transition: transform 0.3s ease-in-out;
 }
-.containerSubMenuOrdersOpen{
+
+.containerSubMenuOrdersOpen {
   display: flex;
   flex-direction: column;
   position: fixed;
@@ -541,22 +561,33 @@ textarea {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.4);
   transition: transform 0.3s ease-in-out;
 }
-.containerEachOrderSubMenu{
+
+.containerEachOrderSubMenu {
   display: flex;
   align-content: center;
   height: 45px;
   width: 100%;
-  background: #C4C4C4;
+  background: #c4c4c4;
   border: 1px solid #000000;
   font-size: 25px;
-  color: #5E5E5E;
+  color: #5e5e5e;
   font-weight: bold;
 }
-.containerEachOrderSubMenu:hover{
-  box-shadow: 0 0 20px #5E5E5E
+
+.containerEachOrderSubMenu:hover {
+  box-shadow: 0 0 20px #5e5e5e;
+}
+/* reloj */
+.fa-clock{
+font-weight: bold;
+color: #edeedc;
+}
+.time {
+  font-size: 1.8em;
+  font-weight: bold;
+  color: #edeedc;
 }
 
-/* modal each order sub menu */
 .containerModalSubMenu{
   position:fixed;
   width: 45%;
@@ -567,19 +598,123 @@ textarea {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
   background-color: #e5e5e5;
   border: 5px solid rgba(94, 94, 94, 0.59);
-
 }
 
-@media screen and (min-width:1366px) {
+
+@media (min-width: 1024px) and (orientation: landscape) {
+  body {
+    background: #6093798f;
+  }
+
+  #root {
+    margin: 14px auto;
+    width: 60%;
+    background: #edeedc;
+    border-radius: 20px;
+    height: 96vh;
+  }
+
+  .containerInitialView {
+    height: 96vh;
+    border-radius: 20px;
+  }
+
+  .comtainerAllTablesView {
+    height: 96vh;
+    border-radius: 20px;
+  }
+
+  .containerAllPage {
+    height: 96vh;
+  }
+
+  .containerHeaderAndOptionsMenu {
+    height: 11%;
+  }
+
+  .containerButtonsMenu {
+    height: 100%;
+    margin-top: 24px;
+  }
+
+  .header {
+    height: 82%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 20px 20px 0 0;
+  }
+
+  .fa-chevron-left {
+    font-size: 2.4em;
+  }
+
+  .logo {
+    width: 36%;
+  }
+
+  .bellOff {
+    height: 43%;
+    margin: 22px;
+  }
+
   .containerButtonsInitial {
-    height: 80vh;
-    flex-direction: row;
+    height: 100vh;
+    flex-direction: column;
     justify-content: space-evenly;
+  }
+
+  .containerTwoButtons {
+    height: 100%;
+    display: flex;
+  }
+
+  .buttonMenuOff {
+    height: 57%;
+    font-size: 134%;
+  }
+
+  .buttonMenuOn {
+    height: 57%;
+    font-size: 134%;
+  }
+
+  .buttonsTables {
+    width: 146px;
+    height: 75px;
+    margin: 30px 20px;
+    font-size: 27px;
+  }
+
+  .btnSendOrder[disabled] {
+    border: 0.7px solid rgba(94, 94, 94, 0.76);
+    font-size: 14px;
+    height: 100%;
+  }
+
+  .btnSendOrder {
+    border: 0.7px solid rgba(94, 94, 94, 0.76);
+    font-size: 14px;
+    height: 100%;
+  }
+
+  .fa-trash-alt {
+    font-size: 1.2em;
+  }
+
+  .containerEachOrder {
+    height: 100%;
+    font-size: 15px;
+  }
+
+  .totalPriceOrder {
+    font-size: 15px;
   }
 
   /* second page */
   .containerTablesView {
-    height: 80vh;
+    height: 100vh;
   }
 
   .containerButtonsTables {
@@ -588,18 +723,28 @@ textarea {
   }
 
   .tableName {
-    margin-top: 30px;
+    margin-top: 7px;
+    font-size: 103%;
   }
 
   /* menu */
   .containerTableNameMenu {
-    width: 62%;
+    width: 55%;
+    height: 80%;
+  }
+
+  .buttonsInitial {
+    width: 66%;
+    height: 87%;
+    margin-bottom: 0;
+    font-size: 29px;
   }
 
   .buttonMenu {
-    width: 165px;
-    height: 96px;
-    margin: 0 20px 100px 20px;
+    width: 30%;
+    height: 16%;
+    font-size: 82%;
+    margin: 0 5px 0px 14px;
   }
 
   .containerViewOrderDetail {
@@ -607,20 +752,200 @@ textarea {
   }
 
   .containerOrderDetail {
-    height: 600px;
-    margin-top: 30px;
+    height: 92%;
+    margin-top: 6px;
+    border: 2px solid rgba(94, 94, 94, 0.59);
   }
 
   textarea {
-    background: #EDEEDC;
     border: 2px solid rgba(94, 94, 94, 0.5);
-    width: 339px;
-    height: 100px;
-    color: #5E5E5E;
-    font-style: italic;
-    font-weight: bold;
-    font-size: 20px;
-    margin: 10px;
+    width: 97%;
+    height: 14%;
+    font-size: 14px;
   }
 
+  .contentProduct {
+    font-size: 18px;
+  }
+
+  .tableNameKitchen {
+    font-size: 17px;
+  }
+
+  .tableNameCounter {
+    height: 15%;
+  }
+
+  .containerOrderButton {
+    height: 34%;
+  }
+
+  .contailerEachOrderKitchen {
+    border: 3px solid rgba(94, 94, 94, 0.59);
+    height: 100%;
+  }
+  .containerContentProduct {
+    height: 83%;
+    border-bottom: none;
+  }
+
+  .containerContentProductComments {
+    height: 86%;
+  }
+
+  .btnReadyKitchen {
+    height: 100%;
+    font-size: 21px;
+    width: 23%;
+  }
+
+  .containerBtnReadyKitchen {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .containerComment {
+    font-size: 16px;
+  }
+  .containerSubMenuOrdersOpen {
+    top: 55px;
+    right: 202px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    height: 37px;
+    width: 100%;
+  }
+
+  a {
+    margin-bottom: 45px;
+  }
+
+  .logo {
+    width: 29%;
+  }
+
+  .bellOff {
+    height: 35%;
+    margin: 27px;
+  }
+
+  .fa-chevron-left {
+    font-size: 2em;
+  }
+
+  .buttonMenuOn {
+    width: 50%;
+    height: 33px;
+    font-size: 23px;
+  }
+
+  .buttonMenuOff {
+    width: 50%;
+    height: 33px;
+    font-size: 23px;
+  }
+
+  .tableName {
+    width: 100%;
+    margin-top: 18px;
+    font-size: 21px;
+  }
+
+  .containerButtonsMenu {
+    margin-top: 20px;
+  }
+
+  .buttonMenu {
+    width: 118px;
+    height: 68px;
+    font-size: 14.7px;
+    margin: 0 0px 16px 18px;
+  }
+
+  .containerOrderDetail {
+    width: 289px;
+    height: 100%;
+    margin-top: 27px;
+    border: 2px solid rgba(94, 94, 94, 0.59);
+  }
+
+  .totalPriceOrder {
+    font-size: 15px;
+    margin-right: 20px;
+  }
+
+  textarea {
+    width: 283px;
+    height: 68px;
+    font-size: 14px;
+    margin: 0;
+  }
+
+  .btnSendOrder[disabled] {
+    width: 290px;
+    height: 32px;
+    font-size: 18px;
+  }
+
+  .btnSendOrder {
+    width: 290px;
+    height: 32px;
+    font-size: 18px;
+  }
+
+  .containerEachOrder {
+    height: 81px;
+    width: 100%;
+    font-size: 15px;
+  }
+
+  .priceOrder {
+    font-size: 15px;
+  }
+
+  .fa-trash-alt {
+    font-size: 1.4em;
+  }
+
+  .buttonsTables {
+    width: 145px;
+    height: 65px;
+    margin: 0 31px -9px 40px;
+    font-size: 20px;
+  }
+
+  .buttonsInitial {
+    width: 198px;
+    height: 87px;
+    margin-bottom: 51px;
+    font-size: 25px;
+  }
+
+  .containerContentProduct {
+    height: 100%;
+  }
+
+  .contentProduct {
+    font-size: 17px;
+  }
+
+  .tableNameKitchen {
+    font-size: 18px;
+  }
+  .containerComment {
+    font-size: 15px;
+  }
+
+  .btnReadyKitchen {
+    width: 100%;
+    height: 100%;
+    font-size: 18px;
+  }
+
+  .contailerEachOrderKitchen {
+    height: 120px;
+  }
 }

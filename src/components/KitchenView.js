@@ -33,6 +33,7 @@ export class Kitchen extends React.Component {
   render() {
     const { kitchenOrders } = this.state;
 
+    // eslint-disable-next-line array-callback-return
     const kitchentList = kitchenOrders.map((order) => {
       if (order.estadoPedido === "En proceso") {
         return (
@@ -55,8 +56,10 @@ export class Kitchen extends React.Component {
     });
 
     return (
-      <div>
-        <ContentHeaderKitchen />
+      <div style={{ height: "100%" }}>
+        <div className="containerHeaderAndOptionsMenu">
+          <ContentHeaderKitchen />{" "}
+        </div>
         <div className="containerAllOrderKitchen">{kitchentList}</div>
       </div>
     );
@@ -90,11 +93,10 @@ class OrderTable extends React.Component {
         <div className="contailerEachOrderKitchen">
           <div className="tableNameCounter">
             <div className="tableNameKitchen">{this.props.table}</div>
-            {/* {<div className="counterTime" onLoad={clock()}></div>} */}
-            <div className="icon box">
+            <div className="time">
               <i className="far fa-clock"></i>
+              <SecondsToString seconds={this.state.seconds} />
             </div>
-            <SecondsToString seconds={this.state.seconds} />
           </div>
           <div className="containerContentProductComments">
             <div className="containerContentProduct">{this.props.children}</div>

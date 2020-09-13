@@ -154,8 +154,15 @@ export class Tables extends React.Component {
 
   render() {
     return (
-      <div style={{ backgroundColor: "#c7c2c2" }}>
-        <ContentHeader />
+      <div
+        className="comtainerAllTablesView"
+        style={{
+          backgroundColor: "#c7c2c2",
+        }}
+      >
+        <div className="containerHeaderAndOptionsMenu">
+          <ContentHeader />
+        </div>
         <div className="containerTablesView">
           <div className="containerButtonsTables">
             <Link to="/mesero/mesa">

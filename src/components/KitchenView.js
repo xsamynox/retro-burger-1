@@ -80,6 +80,9 @@ class OrderTable extends React.Component {
       this.setState({ seconds: this.state.seconds + 1 });
     }, 1000);
   }
+  componentWillUnmount(){
+    this.setState({seconds:0})
+  }
 
   render() {
     return (
@@ -125,21 +128,7 @@ const OrderProducts = ({ product }) => {
 
 const finishOrder = (e) => {
   const valueButton = e.target.value;
-  db.collection("pedidos")
-    .get()
-    .then((querySnapshot) => {
-      querySnapshot.forEach((doc) => {
-        if (valueButton === doc.data().mesa + " " + doc.data().hora) {
-          firebase
-            .firestore()
-            .collection("pedidos")
-            .doc(doc.data().mesa + " " + doc.data().hora)
-            .update({
-              estadoPedido: "Terminado",
-            });
-        } else {
-          console.log("no eran iguales");
-        }
-      });
-    });
+  db.collection("pedidos").doc(valueButton).update({
+    estadoPedido: "Terminado",
+  });
 };

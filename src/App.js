@@ -14,7 +14,7 @@ class App extends React.Component {
             <View />
           </Route>
           <Route exact path="/mesero">
-            <Tables />
+            <Tables/>
           </Route>
           <Route exact path="/mesero/mesa">
             <ContentMenuOrderDetail />

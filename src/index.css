@@ -1,24 +1,35 @@
-/* @font-face {
-  font-family: 'Unna';
-  src: url('./media/Unna-Regular.ttf');
-} */
-
 body {
   margin: 0;
   padding: 0;
   background: #edeedc;
-  font-family: 'Unna', serif;
+  font-family: "Unna", serif;
 }
 
 * {
-  font-family: 'Unna', serif;
+  font-family: "Unna", serif;
+}
+
+a {
+  width: 37%;
+  height: 20%;
+  text-align: center;
+}
+.containerInitialView {
+  height: 100vh;
+}
+
+.comtainerAllTablesView {
+  height: 100vh;
+}
+
+.containerHeaderAndOptionsMenu {
+  width: 100%;
 }
 
 button {
   cursor: pointer;
   outline: none;
 }
-
 
 /* header */
 .header {
@@ -31,7 +42,7 @@ button {
 }
 
 .App {
-  font-family: 'Unna', serif
+  font-family: "Unna", serif;
 }
 
 .logo {
@@ -46,7 +57,6 @@ button {
 .bellOff:hover {
   filter: drop-shadow(0px 8px 8px #48ac78);
 }
-
 
 .containerLogo {
   width: 320px;
@@ -81,7 +91,7 @@ button {
 
 .buttonsInitial:hover,
 .buttonsTables:hover {
-  box-shadow: 0 0 8px #81c9a4
+  box-shadow: 0 0 8px #81c9a4;
 }
 
 /* second page */
@@ -126,7 +136,7 @@ button {
   width: 50%;
   height: 72px;
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
+  border-radius: 0 0 10px 10px;
   font-size: 35px;
   color: #5e5e5e;
   border: none;
@@ -138,13 +148,12 @@ button {
   width: 50%;
   height: 72px;
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
+  border-radius: 0 0 10px 10px;
   font-size: 35px;
   color: #5e5e5e;
   border: none;
   flex-wrap: nowrap;
 }
-
 
 /* menu */
 .containerTableNameMenu {
@@ -160,7 +169,7 @@ button {
   width: 100%;
   font-size: 40px;
   text-decoration-line: underline;
-  color: #5E5E5E;
+  color: #5e5e5e;
   margin-top: 50px;
 }
 
@@ -188,7 +197,7 @@ button {
 }
 
 .buttonDrinkMenu:hover {
-  box-shadow: 0 0 20px #48ac78
+  box-shadow: 0 0 20px #48ac78;
 }
 
 .buttonMainMenu {
@@ -197,7 +206,7 @@ button {
 }
 
 .buttonMainMenu:hover {
-  box-shadow: 0 0 20px #4b4b4b
+  box-shadow: 0 0 20px #4b4b4b;
 }
 
 .buttonSidesMenu {
@@ -246,7 +255,6 @@ button {
 .containerViewOrderDetail {
   display: flex;
   width: 50%;
-
   justify-content: center;
 }
 
@@ -256,14 +264,14 @@ button {
   align-items: center;
   background-color: #e5e5e5;
   border: 5px solid rgba(94, 94, 94, 0.59);
-  width: 370px;
+  width: 100%;
   height: 950px;
   margin-top: 50px;
 }
 
 .containerAllPage {
   display: flex;
-  flex-wrap: wrap
+  flex-wrap: wrap;
 }
 
 .containerAllOrders {
@@ -277,8 +285,8 @@ button {
   width: 100%;
   justify-content: center;
   font-size: 25px;
-  border-bottom: 2px dashed #A9A4A4;
-  color: #5E5E5E;
+  border-bottom: 2px dashed #a9a4a4;
+  color: #5e5e5e;
   font-weight: bold;
 }
 
@@ -291,39 +299,38 @@ button {
   background: #5e5e5e8a;
   border: 1px solid rgba(94, 94, 94, 0.76);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
-  width: 370px;
+  width: 100%;
   height: 50px;
   font-size: 25px;
-  color: #5E5E5E;
+  color: #5e5e5e;
   font-weight: bold;
 }
 
 .btnSendOrder:hover {
-  box-shadow: 0 0 10px #5E5E5E
+  box-shadow: 0 0 10px #5e5e5e;
 }
 
 .btnSendOrder[disabled] {
   border: 1px solid rgba(94, 94, 94, 0.76);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
-  width: 370px;
+  width: 100%;
   height: 50px;
   font-size: 25px;
-  color: #5E5E5E;
+  color: #5e5e5e;
   font-weight: bold;
   opacity: 0.6;
   cursor: not-allowed;
 }
 
 textarea {
-  background: #EDEEDC;
+  background: #edeedc;
   border: 2px solid rgba(94, 94, 94, 0.5);
-  width: 339px;
+  width: 98%;
   height: 152px;
-  color: #5E5E5E;
+  color: #5e5e5e;
   font-style: italic;
   font-weight: bold;
   font-size: 20px;
-  margin: 10px;
 }
 
 .containerInfoBottom {
@@ -331,6 +338,7 @@ textarea {
   flex-direction: column;
   justify-content: flex-end;
   height: 100%;
+  width: 100%;
 }
 
 .totalPriceOrder {
@@ -341,7 +349,7 @@ textarea {
   font-weight: bold;
   font-size: 25px;
   margin-right: 20px;
-  color: #5E5E5E;
+  color: #5e5e5e;
 }
 
 /* Button Trash */
@@ -378,23 +386,24 @@ textarea {
 
 /* VIEW KITCHEN  */
 .contailerEachOrderKitchen {
-  width: 709px;
+  width: 90%;
   height: 285px;
-  background: #E5E5E5;
+  background: #e5e5e5;
   border: 5px solid rgba(94, 94, 94, 0.59);
-  margin-top: 80px;
+  margin-top: 10px;
 }
 
 .containerAllOrderKitchen {
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100%;
 }
 
 .tableNameKitchen {
   font-size: 30px;
   text-decoration-line: underline;
-  color: #5E5E5E;
+  color: #5e5e5e;
 }
 
 .tableNameCounter {
@@ -409,7 +418,7 @@ textarea {
 
 .counterTime {
   font-size: 30px;
-  color: #5E5E5E;
+  color: #5e5e5e;
 }
 
 .contentProduct {
@@ -418,25 +427,24 @@ textarea {
   align-items: space-between;
   align-content: space-between;
   font-size: 34px;
-  color: #5E5E5E;
+  color: #5e5e5e;
 }
 
 .containerContentProduct {
   display: flex;
   flex-direction: column;
   width: 60%;
-  border: 1px solid #5E5E5E;
+  border: 1px solid #5e5e5e;
   height: 208px;
-  padding: 10px
+  padding: 10px;
 }
 
 .containerComment {
   width: 40%;
-  border: 1px solid #5E5E5E;
-  color: #5E5E5E;
+  border: 1px solid #5e5e5e;
+  color: #5e5e5e;
   font-size: 25px;
   padding: 10px;
-
 }
 
 .containerContentProductComments {
@@ -445,28 +453,30 @@ textarea {
 }
 
 .btnReadyKitchen {
-  background: #5E5E5E;
-  border: 3px solid #A9A4A4;
+  background: #5e5e5e;
+  border: 3px solid #a9a4a4;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   width: 200px;
   height: 60px;
-  color: #FFFBFB;
+  color: #fffbfb;
   font-size: 34px;
   justify-self: flex-end;
 }
 
 .btnReadyKitchen:hover {
-  box-shadow: 0 0 10px #5E5E5E
+  box-shadow: 0 0 10px #5e5e5e;
 }
 
 .containerBtnReadyKitchen {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
 }
 
 .containerOrderButton {
+  width: 100%;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 /* modal */
@@ -491,7 +501,6 @@ textarea {
   border-radius: 15px;
   background-color: #e5e5e5;
   border: 5px solid rgba(94, 94, 94, 0.59);
-
 }
 
 .display-block {
@@ -512,24 +521,24 @@ textarea {
 .textModal {
   display: flex;
   font-size: 35px;
-  color: #5E5E5E;
+  color: #5e5e5e;
   align-content: center;
   justify-content: center;
 }
 
 .btnModal {
   margin-top: 50px;
-  background: #5E5E5E;
-  border: 3px solid #A9A4A4;
+  background: #5e5e5e;
+  border: 3px solid #a9a4a4;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   width: 150px;
   height: 50px;
-  color: #FFFBFB;
+  color: #fffbfb;
   font-size: 34px;
 }
 
 .btnModal:hover {
-  box-shadow: 0 0 10px #5E5E5E
+  box-shadow: 0 0 10px #5e5e5e;
 }
 
 /* SubMenuOrders */
@@ -568,46 +577,94 @@ textarea {
   align-content: center;
   height: 45px;
   width: 100%;
-  background: #C4C4C4;
+  background: #c4c4c4;
   border: 1px solid #000000;
   font-size: 25px;
-  color: #5E5E5E;
+  color: #5e5e5e;
   font-weight: bold;
 }
 
 .containerEachOrderSubMenu:hover {
-  box-shadow: 0 0 20px #5E5E5E
+  box-shadow: 0 0 20px #5e5e5e;
 }
 
-@media screen and (min-width:1024px) and (min-height:) {
+@media (min-width: 1024px) and (orientation: landscape) {
+  body {
+    background: #6093798f;
+  }
 
   #root {
     margin: 14px auto;
     width: 60%;
+    background: #edeedc;
+    border-radius: 20px;
+    height: 96vh;
+  }
+
+  .containerInitialView {
+    height: 96vh;
+    border-radius: 20px;
+  }
+
+  .comtainerAllTablesView {
+    height: 96vh;
+    border-radius: 20px;
+  }
+
+  .containerAllPage {
+    height: 96vh;
+  }
+
+  .containerHeaderAndOptionsMenu {
+    height: 11%;
+  }
+
+  .containerButtonsMenu {
+    height: 100%;
+    margin-top: 24px;
   }
 
   .header {
-    height: 65px;
+    height: 82%;
     width: 100%;
-    background: #5e5e5e;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    border-radius: 20px 20px 0 0;
+  }
+
+  .fa-chevron-left {
+    font-size: 2.4em;
   }
 
   .logo {
-    width: 54%;
+    width: 36%;
   }
 
   .bellOff {
-    height: 62%;
-    margin: 15px;
+    height: 43%;
+    margin: 22px;
   }
 
   .containerButtonsInitial {
     height: 80vh;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-evenly;
+  }
+
+  .containerTwoButtons {
+    height: 100%;
+    display: flex;
+  }
+
+  .buttonMenuOff {
+    height: 57%;
+    font-size: 134%;
+  }
+
+  .buttonMenuOn {
+    height: 57%;
+    font-size: 134%;
   }
 
   .buttonsTables {
@@ -615,6 +672,31 @@ textarea {
     height: 75px;
     margin: 30px 20px;
     font-size: 27px;
+  }
+
+  .btnSendOrder[disabled] {
+    border: 0.7px solid rgba(94, 94, 94, 0.76);
+    font-size: 14px;
+    height: 100%;
+  }
+
+  .btnSendOrder {
+    border: 0.7px solid rgba(94, 94, 94, 0.76);
+    font-size: 14px;
+    height: 100%;
+  }
+
+  .fa-trash-alt {
+    font-size: 1.2em;
+  }
+
+  .containerEachOrder {
+    height: 100%;
+    font-size: 15px;
+  }
+
+  .totalPriceOrder {
+    font-size: 15px;
   }
 
   /* second page */
@@ -628,19 +710,28 @@ textarea {
   }
 
   .tableName {
-    margin-top: 30px;
+    margin-top: 7px;
+    font-size: 103%;
   }
 
   /* menu */
   .containerTableNameMenu {
-    width: 62%;
+    width: 55%;
+    height: 80%;
+  }
+
+  .buttonsInitial {
+    width: 66%;
+    height: 87%;
+    margin-bottom: 0;
+    font-size: 29px;
   }
 
   .buttonMenu {
-    width: 144px;
-    height: 82px;
-    margin: 0 5px 37px 26px;
-    font-size: 22px;
+    width: 30%;
+    height: 16%;
+    font-size: 82%;
+    margin: 0 5px 0px 14px;
   }
 
   .containerViewOrderDetail {
@@ -648,20 +739,200 @@ textarea {
   }
 
   .containerOrderDetail {
-    height: 600px;
-    margin-top: 30px;
+    height: 92%;
+    margin-top: 6px;
+    border: 2px solid rgba(94, 94, 94, 0.59);
   }
 
   textarea {
-    background: #EDEEDC;
     border: 2px solid rgba(94, 94, 94, 0.5);
-    width: 339px;
-    height: 100px;
-    color: #5E5E5E;
-    font-style: italic;
-    font-weight: bold;
-    font-size: 20px;
-    margin: 10px;
+    width: 97%;
+    height: 14%;
+    font-size: 14px;
   }
 
+  .contentProduct {
+    font-size: 18px;
+  }
+
+  .tableNameKitchen {
+    font-size: 17px;
+  }
+
+  .tableNameCounter {
+    height: 15%;
+  }
+
+  .containerOrderButton {
+    height: 34%;
+  }
+
+  .contailerEachOrderKitchen {
+    border: 3px solid rgba(94, 94, 94, 0.59);
+    height: 100%;
+  }
+  .containerContentProduct {
+    height: 83%;
+    border-bottom: none;
+  }
+
+  .containerContentProductComments {
+    height: 86%;
+  }
+
+  .btnReadyKitchen {
+    height: 100%;
+    font-size: 21px;
+    width: 23%;
+  }
+
+  .containerBtnReadyKitchen {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .containerComment {
+    font-size: 16px;
+  }
+  .containerSubMenuOrdersOpen {
+    top: 55px;
+    right: 202px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    height: 37px;
+    width: 100%;
+  }
+
+  a {
+    margin-bottom: 45px;
+  }
+
+  .logo {
+    width: 29%;
+  }
+
+  .bellOff {
+    height: 35%;
+    margin: 27px;
+  }
+
+  .fa-chevron-left {
+    font-size: 2em;
+  }
+
+  .buttonMenuOn {
+    width: 50%;
+    height: 33px;
+    font-size: 23px;
+  }
+
+  .buttonMenuOff {
+    width: 50%;
+    height: 33px;
+    font-size: 23px;
+  }
+
+  .tableName {
+    width: 100%;
+    margin-top: 18px;
+    font-size: 21px;
+  }
+
+  .containerButtonsMenu {
+    margin-top: 20px;
+  }
+
+  .buttonMenu {
+    width: 118px;
+    height: 68px;
+    font-size: 14.7px;
+    margin: 0 0px 16px 18px;
+  }
+
+  .containerOrderDetail {
+    width: 289px;
+    height: 100%;
+    margin-top: 27px;
+    border: 2px solid rgba(94, 94, 94, 0.59);
+  }
+
+  .totalPriceOrder {
+    font-size: 15px;
+    margin-right: 20px;
+  }
+
+  textarea {
+    width: 283px;
+    height: 68px;
+    font-size: 14px;
+    margin: 0;
+  }
+
+  .btnSendOrder[disabled] {
+    width: 290px;
+    height: 32px;
+    font-size: 18px;
+  }
+
+  .btnSendOrder {
+    width: 290px;
+    height: 32px;
+    font-size: 18px;
+  }
+
+  .containerEachOrder {
+    height: 81px;
+    width: 100%;
+    font-size: 15px;
+  }
+
+  .priceOrder {
+    font-size: 15px;
+  }
+
+  .fa-trash-alt {
+    font-size: 1.4em;
+  }
+
+  .buttonsTables {
+    width: 145px;
+    height: 65px;
+    margin: 0 31px -9px 40px;
+    font-size: 20px;
+  }
+
+  .buttonsInitial {
+    width: 198px;
+    height: 87px;
+    margin-bottom: 51px;
+    font-size: 25px;
+  }
+
+  .containerContentProduct {
+    height: 100%;
+  }
+
+  .contentProduct {
+    font-size: 17px;
+  }
+
+  .tableNameKitchen {
+    font-size: 18px;
+  }
+  .containerComment {
+    font-size: 15px;
+  }
+
+  .btnReadyKitchen {
+    width: 100%;
+    height: 100%;
+    font-size: 18px;
+  }
+
+  .contailerEachOrderKitchen {
+    height: 120px;
+  }
 }

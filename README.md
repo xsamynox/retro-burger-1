@@ -65,7 +65,7 @@ Y otro menú para el resto del día:
 
 Puedes ver aca nuestra webapp implentada : https://retro-burger-2.firebaseapp.com/
 
-![Producto final](/src/imagesReadme/imagenes-retro-burger.png)
+![Producto final](/src/imagesReadme/imagenes-final.png)
 
 ## 3. Planteamiento del problema
 

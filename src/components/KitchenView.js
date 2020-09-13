@@ -55,8 +55,10 @@ export class Kitchen extends React.Component {
     });
 
     return (
-      <div>
-        <ContentHeaderKitchen />
+      <div style={{ height: "100%" }}>
+        <div className="containerHeaderAndOptionsMenu">
+          <ContentHeaderKitchen />{" "}
+        </div>
         <div className="containerAllOrderKitchen">{kitchentList}</div>
       </div>
     );

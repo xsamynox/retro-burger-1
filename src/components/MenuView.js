@@ -92,23 +92,27 @@ export class ContentMenuOrderDetail extends React.Component {
       this.state.optionMenu === Desayuno ? "buttonMenuOn" : "buttonMenuOff";
     return (
       <div className="containerAllPage">
-        <ContentHeader />
-        <button
-          className={classMenuLunch}
-          onClick={() =>
-            this.setState({ optionMenu: Almuerzo, orderTable: [] })
-          }
-        >
-          Almuerzo
-        </button>
-        <button
-          className={classMenuBreakfast}
-          onClick={() =>
-            this.setState({ optionMenu: Desayuno, orderTable: [] })
-          }
-        >
-          Desayuno
-        </button>
+        <div className="containerHeaderAndOptionsMenu">
+          <ContentHeader />
+          <div className="containerTwoButtons">
+            <button
+              className={classMenuLunch}
+              onClick={() =>
+                this.setState({ optionMenu: Almuerzo, orderTable: [] })
+              }
+            >
+              Almuerzo
+            </button>
+            <button
+              className={classMenuBreakfast}
+              onClick={() =>
+                this.setState({ optionMenu: Desayuno, orderTable: [] })
+              }
+            >
+              Desayuno
+            </button>
+          </div>
+        </div>
         <Menu
           indexButtonClicked={this.state.indexButtonClicked}
           onHandleIndexButtonClicked={this.handleIndexButtonClicked}
@@ -271,7 +275,7 @@ class Menu extends React.Component {
         <div className="tableName">
           {JSON.parse(sessionStorage.table).table}
         </div>
-        <div>
+        <div style={{ height: "100%" }}>
           <div className="containerButtonsMenu">
             <button
               className="buttonMainMenu buttonMenu"

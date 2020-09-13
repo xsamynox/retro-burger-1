@@ -17,8 +17,15 @@ export class ContentHeaderKitchen extends React.Component {
 export class View extends React.Component {
   render() {
     return (
-      <div style={{ backgroundColor: "#c7c2c2" }}>
-        <ContentHeaderKitchen />
+      <div
+        className="containerInitialView"
+        style={{
+          backgroundColor: "#c7c2c2",
+        }}
+      >
+        <div className="containerHeaderAndOptionsMenu">
+          <ContentHeaderKitchen />
+        </div>
         <div className="containerButtonsInitial">
           <Link to="/mesero">
             <button className="buttonsInitial">Mesero</button>

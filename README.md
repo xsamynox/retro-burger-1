@@ -102,7 +102,7 @@ Siguiendo la misma línea del prototipo de baja, y ya teniendo más claros los o
 Puedes ver aqui nuestro Prototipo de alta fidelidad:
 [Figma.](https://www.figma.com/file/P6IojYtoZ7XBmj9Gu3LWhY/RetroBurgers?node-id=0%3A1)
 
-![Prototipo de alta fidelidad](/src/imagesReadme/prototipo-alta.png)
+![Prototipo de alta fidelidad](https://github.com/gvillacura/retro-burger/blob/responsive/src/imagesReadme/prototipo-alta.png)
 
 ## 4. Resolución del problema
 

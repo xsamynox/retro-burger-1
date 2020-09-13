@@ -65,6 +65,8 @@ Y otro menú para el resto del día:
 
 Puedes ver aca nuestra webapp implentada : https://retro-burger-2.firebaseapp.com/
 
+![Producto final](https://github.com/gvillacura/retro-burger/blob/responsive/src/imagesReadme/imagenes-final.png)
+
 ## 3. Planteamiento del problema
 
 Debido al crecimiento que ha tenido Retro Burger en los últimos meses, se planteo la necesidad de una interfaz que les permitiera tomar los pedidos de sus clientes de manera sencilla, y que a su vez, pudiese enviar dicha información a la cocina. De esta manera atender a la clientela en menor tiempo y con mayor facilidad y organización.
@@ -99,6 +101,8 @@ Siguiendo la misma línea del prototipo de baja, y ya teniendo más claros los o
 
 Puedes ver aqui nuestro Prototipo de alta fidelidad:
 [Figma.](https://www.figma.com/file/P6IojYtoZ7XBmj9Gu3LWhY/RetroBurgers?node-id=0%3A1)
+
+![Prototipo de alta fidelidad](https://github.com/gvillacura/retro-burger/blob/responsive/src/imagesReadme/prototipo-alta.png)
 
 ## 4. Resolución del problema
 

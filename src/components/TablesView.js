@@ -3,8 +3,6 @@ import firebase from "../firebaseConfig";
 import { Link } from "react-router-dom";
 import logo from "../media/logo.png";
 import bellOff from "../media/bell-off.png";
-import bellOn from "../media/bell-on.png";
-const db = firebase.firestore();
 
 export class ContentHeader extends React.Component {
   render() {
@@ -38,27 +36,24 @@ class GoBack extends React.Component {
 class Bell extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { bellonof: false, bellPhoto: bellOff };
+    this.state = { bellonof: false};
     this.handleSubMenu= this.handleSubMenu.bind(this)
   }
   handleSubMenu(){
     this.setState({ bellonof: !this.state.bellonof })
-  }
-  handleBellPhoto(bellClase){
-    this.setState({bellClase: bellClase})
   }
   render() {
     return (
       <div>
         <div className="containerBellOf">
           <img
-            src={this.state.bellPhoto}
+            src={bellOff}
             alt={""}
             className="bellOff"
             onClick={this.handleSubMenu}
           />
         </div>
-        <SubMenuOrders bellonof={this.state.bellonof} handleSubMenu={this.handleSubMenu} handleBellPhoto={this.handleBellPhoto}/>
+        <SubMenuOrders bellonof={this.state.bellonof} handleSubMenu={this.handleSubMenu} />
       </div>
     );
   }
@@ -81,16 +76,6 @@ class SubMenuOrders extends React.Component {
   }
   render() {
     const classSubMenuOrders =this.props.bellonof === true? "containerSubMenuOrdersOpen": "containerSubMenuOrdersClose";
-    db.collection("pedidos")
-    .get()
-    .then((querySnapshot) => {
-      querySnapshot.forEach((doc) => {
-        if (doc.data().estadoPedido === "Terminado") {
-          console.log("oli")
-          this.props.handleBellPhoto(bellOn)
-        }
-      });
-    });
     return (
       <div>
         <ModalOrders
@@ -149,16 +134,6 @@ class SubMenuOrders extends React.Component {
 
 const ModalOrders = ({ modalSubMenu, hideModalSubMenu }) => {
   const classModal = modalSubMenu? "modal display-block": "modal display-none";
-  db.collection("pedidos")
-    .get()
-    .then((querySnapshot) => {
-      querySnapshot.forEach((doc) => {
-        if (doc.data().estadoPedido === "Terminado") {
-          console.log("oli")
-          this.props.handleBellPhoto(bellOn)
-        }
-      });
-    });
   return (
     <div className={classModal}>
       <section className="containerModalSubMenu">

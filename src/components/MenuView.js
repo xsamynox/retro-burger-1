@@ -25,6 +25,7 @@ export class ContentMenuOrderDetail extends React.Component {
     });
     // construir array de pedidos
     const optionMenu = this.state.optionMenu;
+    console.log(optionMenu[indexButtonClicked].cantidad)
     if (optionMenu[indexButtonClicked].cantidad === 0) {
       this.setState((state) => {
         const actualOrder = state.orderTable.concat(
@@ -49,12 +50,13 @@ export class ContentMenuOrderDetail extends React.Component {
 
   // Modificando el estado que se ejecutara en SendOrder
   handleReset = () => {
+    console.log("oli")
+    this.state.orderTable.map((item) => {
+      item.cantidad = 0;
+    });
     const optionMenu = this.state.optionMenu;
     this.setState({ orderTable: [], totalPrice: 0 });
     // eslint-disable-next-line array-callback-return
-    optionMenu.map((item) => {
-      item.cantidad = 0;
-    });
   };
 
   deleteItems = (index) => {
@@ -65,10 +67,11 @@ export class ContentMenuOrderDetail extends React.Component {
       }
       return idIndex !== index;
     });
+    const total = filterOrderTable.reduce((totalsum, oli) => totalsum + oli.preciototal,0);
+      this.setState({ totalPrice: total })
 
     this.setState({
-      orderTable: filterOrderTable,
-    });
+      orderTable: filterOrderTable});
   };
 
   handleSubtract = (indexSelectec) => {
@@ -81,8 +84,8 @@ export class ContentMenuOrderDetail extends React.Component {
       }
       return item;
     });
-
-    this.setState({ orderTable: tempArray });
+    const total = tempArray.reduce((totalsum, oli) => totalsum + oli.preciototal, 0);
+    this.setState({ orderTable: tempArray, totalPrice: total});
   };
 
   render() {
@@ -237,7 +240,6 @@ class SendOrder extends React.Component {
     const stateOrder = this.state.orderState;
     this.setState({ modalVisibility: true });
     saveOrder(orderTable, totalPrice, stateOrder, this.props.comments);
-    this.props.handleReset()
   }
 
   render() {
@@ -251,7 +253,8 @@ class SendOrder extends React.Component {
             this.handleClickSendOrder(
               this.props.orderToSend,
               this.props.priceToSend
-            );
+            )
+            this.props.handleReset()
           }}
         >
           ENVIAR PEDIDO

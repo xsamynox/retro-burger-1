@@ -2,7 +2,8 @@ import React from "react";
 import firebase from "../firebaseConfig";
 import { Link } from "react-router-dom";
 import logo from "../media/logo.png";
-import bell from "../media/bell-off.png";
+import bellOff from "../media/bell-off.png";
+import bellOn from "../media/bell-on.png";
 const db = firebase.firestore();
 
 export class ContentHeader extends React.Component {
@@ -37,20 +38,27 @@ class GoBack extends React.Component {
 class Bell extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { bellonof: false };
+    this.state = { bellonof: false, bellPhoto: bellOff };
+    this.handleSubMenu= this.handleSubMenu.bind(this)
+  }
+  handleSubMenu(){
+    this.setState({ bellonof: !this.state.bellonof })
+  }
+  handleBellPhoto(bellClase){
+    this.setState({bellClase: bellClase})
   }
   render() {
     return (
       <div>
         <div className="containerBellOf">
           <img
-            src={bell}
+            src={this.state.bellPhoto}
             alt={""}
             className="bellOff"
-            onClick={() => this.setState({ bellonof: !this.state.bellonof })}
+            onClick={this.handleSubMenu}
           />
         </div>
-        <SubMenuOrders bellonof={this.state.bellonof} />
+        <SubMenuOrders bellonof={this.state.bellonof} handleSubMenu={this.handleSubMenu} handleBellPhoto={this.handleBellPhoto}/>
       </div>
     );
   }
@@ -65,16 +73,24 @@ class SubMenuOrders extends React.Component {
   }
   showModalSubMenu(e) {
     const table = e.target.value;
-    this.setState({ modalSubMenu: true, tableModalClicked: table });
+    this.props.handleSubMenu(false)
+    this.setState({ modalSubMenu: true, tableModalClicked: table});
   }
   hideModalSubMenu() {
     this.setState({ modalSubMenu: false });
   }
   render() {
-    const classSubMenuOrders =
-      this.props.bellonof === true
-        ? "containerSubMenuOrdersOpen"
-        : "containerSubMenuOrdersClose";
+    const classSubMenuOrders =this.props.bellonof === true? "containerSubMenuOrdersOpen": "containerSubMenuOrdersClose";
+    db.collection("pedidos")
+    .get()
+    .then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        if (doc.data().estadoPedido === "Terminado") {
+          console.log("oli")
+          this.props.handleBellPhoto(bellOn)
+        }
+      });
+    });
     return (
       <div>
         <ModalOrders
@@ -132,25 +148,14 @@ class SubMenuOrders extends React.Component {
 }
 
 const ModalOrders = ({ modalSubMenu, hideModalSubMenu }) => {
-  const classModal = modalSubMenu
-    ? "modal display-block"
-    : "modal display-none";
-  let olis = [];
+  const classModal = modalSubMenu? "modal display-block": "modal display-none";
   db.collection("pedidos")
     .get()
     .then((querySnapshot) => {
-      olis = querySnapshot.forEach((doc) => {
-        if (doc.data().mesa === "MESA 1") {
-          doc.data().productos.map((item) => {
-            return (
-              <div className="containerEachOrder" key={item.nombre}>
-                <div>
-                  {item.nombre} x {item.cantidad}
-                </div>
-                <div className="priceOrder">${item.preciototal}</div>
-              </div>
-            );
-          });
+      querySnapshot.forEach((doc) => {
+        if (doc.data().estadoPedido === "Terminado") {
+          console.log("oli")
+          this.props.handleBellPhoto(bellOn)
         }
       });
     });

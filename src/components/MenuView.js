@@ -67,7 +67,7 @@ export class ContentMenuOrderDetail extends React.Component {
     });
 
     this.setState({
-      orderTable: filterOrderTable,
+      orderTable: filterOrderTable, totalPrice: 0
     });
   };
 
@@ -81,8 +81,8 @@ export class ContentMenuOrderDetail extends React.Component {
       }
       return item;
     });
-
-    this.setState({ orderTable: tempArray });
+    const total = tempArray.reduce((totalsum, oli) => totalsum + oli.preciototal, 0);
+    this.setState({ orderTable: tempArray,totalPrice: total });
   };
 
   render() {
